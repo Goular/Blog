@@ -13,6 +13,10 @@
 <pre>
     1.「公开磁盘」就是指你的文件将可被公开访问，默认下， public 磁盘使用 local 驱动且将文件存放在 storage/app/public 目录下。为了能通过网络访问，你需要创建 public/storage 到 storage/app/public 的符号链接。
         php artisan storage:link
+    2.由于Laravel是外国人开发的，所以时区和默认语言是需要进行修改的
+        修改位置:config/app.php
+        'timezone'=>'RPC' 时区
+        'locale'=>'zh'    当地语言
 </pre>
 
 ### 项目前端和图片等静态资源构建(gulp.js)
