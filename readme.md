@@ -93,4 +93,7 @@
 ### 注意点
 <pre>
     1.在文件夹/resources/views/vendor中的模板是使用了php artisan vendor:publish命令生成出来的，目前作用不明.
+    2.PHP内置的Web服务器将把这个文件作为入口。以public/index.php为入口的可以忽略掉该文件
+    3.Laravel速度优化:https://laravel-china.org/articles/2020/ten-laravel-5-program-optimization-techniques
+
 </pre>
