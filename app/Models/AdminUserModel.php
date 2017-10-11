@@ -8,5 +8,12 @@ namespace App\Models;
  */
 class AdminUserModel extends BaseModel
 {
-
+    /**
+     * 校验是否能够成功登录
+     * @param $username
+     * @param $password
+     */
+    public function login($username,$password){
+        return true;
+    }
 }

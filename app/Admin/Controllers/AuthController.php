@@ -2,6 +2,7 @@
 
 namespace App\Admin\Controllers;
 
+use App\Models\AdminUserModel;
 use Illuminate\Http\Request;
 
 /**
@@ -27,6 +28,13 @@ class AuthController extends Controller
             'password' => 'required|min:6',
             'captcha' => 'required|captcha',
         ]);
-
+        $username = request('username');
+        $password = request('password');
+        $model = new AdminUserModel();
+        if($model->login($username,$password)){
+            return redirect('admin');
+        }else{
+            return view('backend.auth.index');
+        }
     }
 }
