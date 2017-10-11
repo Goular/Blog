@@ -11,6 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+//引入后台的路由配置文件
+include_once("admin.php");
+
+//前台路由配置规则
+Route::prefix('')->group(function () {
+    Route::get('/', 'IndexController@index');
 });
+
+
