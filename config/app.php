@@ -177,6 +177,8 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        //2017-10-11 添加验证码 mewebstudio/captcha
+        Mews\Captcha\CaptchaServiceProvider::class,
     ],
 
     /*
@@ -226,6 +228,8 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
 
+        //2017-10-11 添加验证码 mewebstudio/captcha
+        'Captcha' => Mews\Captcha\Facades\Captcha::class,
     ],
 
 ];
