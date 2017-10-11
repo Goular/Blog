@@ -12,7 +12,7 @@ use Illuminate\Http\Request;
 class AuthController extends Controller
 {
 
-    public function login(){
-        return "backend-login";
+    public function index(){
+        return view('backend.auth.index');
     }
 }
