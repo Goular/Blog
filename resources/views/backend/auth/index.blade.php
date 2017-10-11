@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <link rel="stylesheet" href="{{asset('/admins/css/ch-ui.admin.css')}}">
-  <link rel="stylesheet" href="{{asset('/admins/font/css/font-awesome.min.css')}}">
+  <link rel="stylesheet" href="{{asset('/admin-ui/css/ch-ui.admin.css')}}">
+  <link rel="stylesheet" href="{{asset('/admin-ui/font/css/font-awesome.min.css')}}">
 </head>
 <body style="background:#F3F3F4;">
 <div class="login_box">
@@ -32,7 +32,7 @@
         </li>
       </ul>
     </form>
-    <p><a href="https://blog.jiagongwu.com">返回首页</a> &copy; 2016 Powered by Goular <a href="https://jiagongwu.com" target="_blank">https://jiagongwu.com</a></p>
+    <p><a href="{{url("")}}">返回首页</a> &copy; 2016 Powered by Goular <a href="{{url("")}}" target="_blank">{{url("")}}</a></p>
   </div>
 </div>
 </body>

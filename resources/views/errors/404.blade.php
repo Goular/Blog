@@ -23,7 +23,7 @@
             <div class="mod-notfound grid-98"><img class="img-notfound" height="320" src="/images/404.gif" width="520">
                 <p style="FONT-SIZE: 24px; LINE-HEIGHT: 70px">啊~哦~ 您要查看的页面不存在或已删除！</p>
                 <p style="MARGIN-BOTTOM: 30px">请检查您输入的网址是否正确，或者点击链接继续浏览空间</p>
-                <p style="FONT-SIZE: 14px; LINE-HEIGHT: 20px">您可以回到 <a href="#">网站首页</a> 或到<a href="#" target="_blank">帮助中心</a> </p></div></div></div></section><footer class="mod-footer mod-cs-footer">
+                <p style="FONT-SIZE: 14px; LINE-HEIGHT: 20px">您可以回到 <a href="{{url("")}}">网站首页</a> 或到<a href="{{url("help")}}" target="_blank">帮助中心</a> </p></div></div></div></section><footer class="mod-footer mod-cs-footer">
     <div class="clearfix hidden-box"></div>
     <div class="footer-box">
         <div class="copy-box">©2017&nbsp;加工屋</div></div></footer>
