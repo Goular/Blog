@@ -11,8 +11,22 @@ use Illuminate\Http\Request;
  */
 class AuthController extends Controller
 {
-
+    /**
+     * 后台登录功能的显示页面
+     */
     public function index(){
         return view('backend.auth.index');
+    }
+
+    /**
+     * 后台登录
+     */
+    public function login(){
+        $this->validate(request(), [
+            'username' => 'required',
+            'password' => 'required|min:6',
+            'captcha' => 'required|captcha',
+        ]);
+
     }
 }

@@ -17,6 +17,7 @@ return [
     ],
     'boolean'              => ':attribute 字符必须是 true 或 false',
     'confirmed'            => ':attribute 二次确认不匹配',
+    'captcha'              => ':attribute 不匹配',
     'date'                 => ':attribute 必须是一个合法的日期',
     'date_format'          => ':attribute 与给定的格式 :format 不符合',
     'different'            => ':attribute 必须不同于:other',

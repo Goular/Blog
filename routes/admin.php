@@ -3,4 +3,5 @@
 Route::prefix('admin')->group(function () {
     Route::get('/', '\App\Admin\Controllers\IndexController@index');
     Route::get('/login', '\App\Admin\Controllers\AuthController@index');
+    Route::post('/login', '\App\Admin\Controllers\AuthController@login');
 });

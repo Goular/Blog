@@ -5,6 +5,11 @@ namespace App\Entities;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
+/**
+ * User类为后台管理人员使用
+ * Class User
+ * @package App\Entities
+ */
 class User extends Authenticatable
 {
     use Notifiable;
