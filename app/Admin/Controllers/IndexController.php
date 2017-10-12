@@ -9,6 +9,6 @@ class IndexController extends Controller
 {
 
     public function index(){
-        return "backend";
+        return view("backend.layout.main");
     }
 }

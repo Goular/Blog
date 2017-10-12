@@ -27,14 +27,17 @@ class AuthController extends Controller
      * 后台登录
      */
     public function login(){
+        //验证
         $this->validate(request(), [
             'username' => 'required',
             'password' => 'required|min:6',
             'captcha' => 'required|captcha',
         ]);
+        //逻辑
         $username = request('username');
         $password = request('password');
         $model = new AdminUserModel();
+        //渲染
         if($model->login($username,$password)){
             return redirect('admin');
         }else{
