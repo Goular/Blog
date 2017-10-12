@@ -13,19 +13,8 @@ use Illuminate\Http\Request;
  */
 class AuthController extends Controller
 {
+    //添加官方Auth的Trait
     use AuthenticatesUsers;
-
-    //设置验证成功后转跳的页面
-    protected function redirectTo()
-    {
-        return '/admin';
-    }
-
-    //自定义校验的用户名称
-    public function username()
-    {
-        return 'name';
-    }
 
     /**
      * 后台登录功能的显示页面
@@ -49,7 +38,7 @@ class AuthController extends Controller
         if($model->login($username,$password)){
             return redirect('admin');
         }else{
-            return view('backend.auth.index');
+            return back()->withErrors("账号密码不匹配");
         }
     }
 }

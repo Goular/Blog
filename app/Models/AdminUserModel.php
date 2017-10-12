@@ -13,13 +13,11 @@ class AdminUserModel extends BaseModel
      * @param $username
      * @param $password
      */
-    public function login($username,$password){
-
-        if (Auth::attempt(['name' => $username, 'password' => $password])) {
-            // 认证通过...
-            return redirect()->intended('dashboard');
+    public function login($username, $password)
+    {
+        if (\Auth::attempt(['username' => $username, 'password' => $password])) {
+            return true;
         }
-
-        return true;
+        return false;
     }
 }

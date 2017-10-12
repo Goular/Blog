@@ -34,13 +34,14 @@
     <div class="login-box-body">
         <p class="login-box-msg">登录</p>
 
-        <form action="/adminlte/index2.html" method="post">
+        <form action="{{url('admin/login')}}" method="post">
+            {{csrf_field()}}
             <div class="form-group has-feedback">
-                <input type="username" class="form-control" placeholder="请输入用户名">
+                <input name="username" type="username" class="form-control" placeholder="请输入用户名">
                 <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
             </div>
             <div class="form-group has-feedback">
-                <input type="password" class="form-control" placeholder="请输入密码">
+                <input name="password" type="password" class="form-control" placeholder="请输入密码">
                 <span class="glyphicon glyphicon-lock form-control-feedback"></span>
             </div>
             <div class="form-group form-inline has-feedback">
@@ -63,7 +64,7 @@
                 <!-- /.col -->
             </div>
         </form>
-
+        @include("backend.layout.errorMsg")
     {{--<div class="social-auth-links text-center">--}}
     {{--<p>- 或 -</p>--}}
     {{--<a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Sign in--}}

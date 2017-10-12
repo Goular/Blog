@@ -10,7 +10,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
  * Class User
  * @package App\Entities
  */
-class User extends Authenticatable
+class AdminUser extends Authenticatable
 {
     use Notifiable;
 
@@ -20,7 +20,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'username', 'email', 'password',
     ];
 
     /**
