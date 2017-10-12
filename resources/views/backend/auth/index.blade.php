@@ -44,9 +44,9 @@
                 <input name="password" type="password" class="form-control" placeholder="请输入密码">
                 <span class="glyphicon glyphicon-lock form-control-feedback"></span>
             </div>
-            <div class="form-group form-inline has-feedback">
+            <div style="display: flex;justify-content: space-between;" class="form-group form-inline has-feedback">
                 <input name="captcha" type="text" class="form-control" placeholder="请输入验证码">
-                <img class="" style="width: 112px;" src="{{url('verify/captcha/img')}}" alt=""
+                <img style="width: 85px;" src="{{url('verify/captcha/img')}}" alt=""
                      onclick="this.src='{{url('verify/captcha/img')}}?'+Math.random()">
             </div>
             <div class="row">
