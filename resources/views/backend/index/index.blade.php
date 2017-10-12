@@ -3,7 +3,7 @@
 @section("page-title","后台管理系统--首页")
 
 @section('page-content')
-    正文内容
+的算法第三方第三方发的所发生的防守打法
 @endsection
 
 @section('page-js')
@@ -13,3 +13,4 @@
 @section('page-css')
 
 @endsection
+

@@ -504,9 +504,9 @@
     <!-- /.content-wrapper -->
     <footer class="main-footer">
         <div class="pull-right hidden-xs">
-            <b>Version</b> 2.4.0
+            <b>版本</b> 1.0.0
         </div>
-        <strong>Copyright &copy; 2016-2018 <a href="{{url('')}}">加工屋</a> @</strong> 版权所有.
+        <strong>Copyright &copy; 2016-2018 <a href="{{url('')}}">加工屋</a> @</strong> 版权所有   粤ICP备17077628号-1
     </footer>
 
     <!-- Control Sidebar -->
