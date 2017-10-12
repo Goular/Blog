@@ -30,7 +30,7 @@
                         <li><a href="#">最大上传限制 <span class="pull-right badge bg-green"><?php echo get_cfg_var ("upload_max_filesize")??"不允许上传附件"; ?></span></a></li>
                         <li><a href="#">脚本运行占用最大内存<span class="pull-right badge bg-green"><?php echo get_cfg_var ("memory_limit")??"无"; ?></span></a></li>
                         <li><a href="#">服务器时间 <span class="pull-right badge bg-green"><?php date_default_timezone_set ('PRC'); echo date("Y-m-d G:i:s");?></span></a></li>
-                        <li><a href="#">服务器域名/IP<span class="pull-right badge bg-green"><?php echo $_SERVER['SERVER_NAME'];?>/<?php echo $_SERVER['HTTP_HOST'];?></span></a></li>
+                        <li><a href="#">服务器域名/IP<span class="pull-right badge bg-green"><?php echo $_SERVER['HTTP_HOST'];?></span></a></li>
                         <li><a href="#">当前主机<span class="pull-right badge bg-green"><?php echo $_SERVER["REMOTE_ADDR"];?></span></a></li>
                     </ul>
                 </div>
