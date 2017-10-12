@@ -24,7 +24,8 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
-<body class="hold-transition login-page" style="background:url({{url('images/bg-admin.svg')}}) no-repeat center;background-size: 100%">
+<body class="hold-transition login-page"
+      style="background:url({{url('images/bg-admin.svg')}}) no-repeat center;background-size: 100%">
 <div class="login-box">
     <div class="login-logo">
         <a href="/adminlte/index2.html"><b>博客</b>后台系统</a>
@@ -35,12 +36,17 @@
 
         <form action="/adminlte/index2.html" method="post">
             <div class="form-group has-feedback">
-                <input type="email" class="form-control" placeholder="请输入用户名">
+                <input type="username" class="form-control" placeholder="请输入用户名">
                 <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
             </div>
             <div class="form-group has-feedback">
                 <input type="password" class="form-control" placeholder="请输入密码">
                 <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+            </div>
+            <div class="form-group form-inline has-feedback">
+                <input type="text" class="form-control" placeholder="请输入验证码">
+                <img class="" style="width: 112px;" src="{{url('verify/captcha/img')}}" alt=""
+                     onclick="this.src='{{url('verify/captcha/img')}}?'+Math.random()">
             </div>
             <div class="row">
                 <div class="col-xs-8">
@@ -58,20 +64,20 @@
             </div>
         </form>
 
-        {{--<div class="social-auth-links text-center">--}}
-            {{--<p>- 或 -</p>--}}
-            {{--<a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Sign in--}}
-                {{--using--}}
-                {{--Facebook</a>--}}
-            {{--<a href="#" class="btn btn-block btn-social btn-google btn-flat"><i class="fa fa-google-plus"></i> Sign in--}}
-                {{--using--}}
-                {{--Google+</a>--}}
-        {{--</div>--}}
-        <!-- /.social-auth-links -->
-
-        <a href="#">忘记密码?</a><br>
-        <a href="register.html" class="text-center">注册会员</a>
-
+    {{--<div class="social-auth-links text-center">--}}
+    {{--<p>- 或 -</p>--}}
+    {{--<a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Sign in--}}
+    {{--using--}}
+    {{--Facebook</a>--}}
+    {{--<a href="#" class="btn btn-block btn-social btn-google btn-flat"><i class="fa fa-google-plus"></i> Sign in--}}
+    {{--using--}}
+    {{--Google+</a>--}}
+    {{--</div>--}}
+    <!-- /.social-auth-links -->
+        <div style="display: flex;justify-content: space-between;padding-top: 12px;">
+            <a href="#">忘记密码?</a><br>
+            <a href="register.html" class="text-center">注册会员</a>
+        </div>
     </div>
     <!-- /.login-box-body -->
 </div>
