@@ -44,7 +44,7 @@
                 <span class="glyphicon glyphicon-lock form-control-feedback"></span>
             </div>
             <div class="form-group form-inline has-feedback">
-                <input type="text" class="form-control" placeholder="请输入验证码">
+                <input name="captcha" type="text" class="form-control" placeholder="请输入验证码">
                 <img class="" style="width: 112px;" src="{{url('verify/captcha/img')}}" alt=""
                      onclick="this.src='{{url('verify/captcha/img')}}?'+Math.random()">
             </div>
