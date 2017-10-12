@@ -41,7 +41,14 @@ class AuthController extends Controller
         if($model->login($username,$password)){
             return redirect('admin');
         }else{
-            return back()->withErrors("账号密码不匹配");
+            return back()->withInput()->withErrors("账号密码不匹配");
         }
+    }
+
+    /**
+     * 后台登出
+     */
+    public function logout(){
+        \Auth::logout();
     }
 }

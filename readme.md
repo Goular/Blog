@@ -96,6 +96,7 @@
     2.PHP内置的Web服务器将把这个文件作为入口。以public/index.php为入口的可以忽略掉该文件
     3.Laravel速度优化:https://laravel-china.org/articles/2020/ten-laravel-5-program-optimization-techniques
     4.这里分模型和实体，模型是会处理逻辑功能的，尽量把逻辑写到实体，让控制器更多的是处理业务分发等与界面或api的交互
+    5.后台管理的路由可以使用namespace来进行提取，这样就不用每个路由都写\App\Admin\Controller...那么长的内容了
 </pre>
 
 ###
@@ -141,4 +142,25 @@
     @section('page-css')
     
     @endsection
+</pre>
+
+### old()辅助方法,laravel 提交表单带参数返回,记住上一次输入,return back()->withInput()
+<pre>
+    old 函数 获取 session 内一次性的历史输入值： 
+        $value = old('value');
+        $value = old('value', 'default');
+
+    1.我们根据错误原因，返回在控制器里面吊用return banck 函数  
+        if(empty($request->usename)) return back()->with('msg','账号不能为空 ！')->withInput();
+        好的，这里我们把表单的内容和附带一个msg返回注册表单
+    
+    2.这里返回的值msg我们可以用session闪存获取
+        @if(Session::has('msg'))
+           <div>{{ Session::get('msg') }}</div>
+        @endif
+        这样，你可以一次获取返回的错误
+    
+    3.我们怎么在文本框中获取原来提交的值？  
+        <input type="text" name="usename" placeholder="请输入电话号码" value="{{ old('usename') }}" />
+        这里我们运用old 函数返回便可以获取具体上一次提交的值
 </pre>
