@@ -3,6 +3,7 @@
 namespace App\Admin\Controllers;
 
 use App\Models\AdminUserModel;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 
 /**
@@ -12,6 +13,20 @@ use Illuminate\Http\Request;
  */
 class AuthController extends Controller
 {
+    use AuthenticatesUsers;
+
+    //设置验证成功后转跳的页面
+    protected function redirectTo()
+    {
+        return '/admin';
+    }
+
+    //自定义校验的用户名称
+    public function username()
+    {
+        return 'name';
+    }
+
     /**
      * 后台登录功能的显示页面
      */

@@ -118,3 +118,8 @@
     查询当前连接的MYSQL数据库的版本 php自带函数 mysql_get_server_info() 
     获得服务器系统时间 date_default_timezone_set (PRC); echo date("Y-m-d G:i:s");
 </pre>
+
+### 如何重写Laravel 的attempt方法呢？因为加密方法是自定义的。 
+<pre>
+    https://segmentfault.com/q/1010000006071468 
+</pre>

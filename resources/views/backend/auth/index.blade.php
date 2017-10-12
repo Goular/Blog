@@ -49,15 +49,15 @@
                      onclick="this.src='{{url('verify/captcha/img')}}?'+Math.random()">
             </div>
             <div class="row">
-                <div class="col-xs-8">
-                    <div class="checkbox icheck">
-                        <label>
-                            <input type="checkbox"> 记住我
-                        </label>
-                    </div>
-                </div>
+                {{--<div style="visibility:hidden; " class="col-xs-8">--}}
+                    {{--<div class="checkbox icheck">--}}
+                        {{--<label>--}}
+                            {{--<input type="checkbox"> 记住我--}}
+                        {{--</label>--}}
+                    {{--</div>--}}
+                {{--</div>--}}
                 <!-- /.col -->
-                <div class="col-xs-4">
+                <div class="col-xs-12">
                     <button type="submit" class="btn btn-primary btn-block btn-flat">登录</button>
                 </div>
                 <!-- /.col -->
