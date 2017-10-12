@@ -97,3 +97,24 @@
     3.Laravel速度优化:https://laravel-china.org/articles/2020/ten-laravel-5-program-optimization-techniques
     4.这里分模型和实体，模型是会处理逻辑功能的，尽量把逻辑写到实体，让控制器更多的是处理业务分发等与界面或api的交互
 </pre>
+
+###
+<pre>
+    PHP7:可以使用三元运算符 ?? 带省略写下面的内容.
+    
+    PHP程式版本： <?PHP echo PHP_VERSION; ?>
+    ZEND版本： <?PHP echo zend_version(); ?>
+    MYSQL支持： <?php echo function_exists (mysql_close)?"是":"否"; ?>
+    MySQL数据库持续连接 ： <?php echo @get_cfg_var("mysql.allow_persistent")?"是 ":"否"; ?>
+    MySQL最大连接数： <?php echo @get_cfg_var("mysql.max_links")==-1 ? "不限" : @get_cfg_var("mysql.max_links");?>
+    服务器操作系统： <?PHP echo PHP_OS; ?>
+    服务器端信息： <?PHP echo $_SERVER ['SERVER_SOFTWARE']; ?>
+    最大上传限制： <?PHP echo get_cfg_var ("upload_max_filesize")?get_cfg_var ("upload_max_filesize"):"不允许上传附件"; ?>
+    最 大执行时间： <?PHP echo get_cfg_var("max_execution_time")."秒 "; ?>
+    脚本运行占用最大内存： <?PHP echo get_cfg_var ("memory_limit")?get_cfg_var("memory_limit"):"无" ?>
+    查询当前连接的MYSQL数据库的版本 php自带函数 mysql_get_server_info() 
+    获得服务器系统时间 date_default_timezone_set (PRC); echo date("Y-m-d G:i:s");
+    
+    查询当前连接的MYSQL数据库的版本 php自带函数 mysql_get_server_info() 
+    获得服务器系统时间 date_default_timezone_set (PRC); echo date("Y-m-d G:i:s");
+</pre>
