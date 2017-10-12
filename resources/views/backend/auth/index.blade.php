@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>AdminLTE 2 | Log in</title>
+    <title>Blog--Login</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.6 -->
@@ -24,7 +24,7 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
-<body class="hold-transition login-page" style="background:url(/images/bg-admin.jpg) repeat;">
+<body class="hold-transition login-page" style="background:url({{url('images/bg-admin.svg')}}) no-repeat center;background-size: 100%">
 <div class="login-box">
     <div class="login-logo">
         <a href="/adminlte/index2.html"><b>加工屋</b>后台系统</a>
