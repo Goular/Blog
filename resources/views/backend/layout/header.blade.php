@@ -232,13 +232,13 @@
                         <li class="user-body">
                             <div class="row">
                                 <div class="col-xs-4 text-center">
-                                    <a href="#">Followers</a>
+                                    <a href="#">粉丝</a>
                                 </div>
                                 <div class="col-xs-4 text-center">
                                     <a href="#">Sales</a>
                                 </div>
                                 <div class="col-xs-4 text-center">
-                                    <a href="#">Friends</a>
+                                    <a href="#">好友</a>
                                 </div>
                             </div>
                             <!-- /.row -->
@@ -246,7 +246,7 @@
                         <!-- Menu Footer-->
                         <li class="user-footer">
                             <div class="pull-left">
-                                <a href="#" class="btn btn-default btn-flat">Profile</a>
+                                <a href="#" class="btn btn-default btn-flat">个人资料</a>
                             </div>
                             <div class="pull-right">
                                 <a href="{{url('/admin/logout')}}" class="btn btn-default btn-flat">退出系统</a>
