@@ -246,7 +246,7 @@
                         <!-- Menu Footer-->
                         <li class="user-footer">
                             <div class="pull-left">
-                                <a href="#" class="btn btn-default btn-flat">个人资料</a>
+                                <a href="{{url('admin/changepwd')}}" class="btn btn-default btn-flat">修改密码</a>
                             </div>
                             <div class="pull-right">
                                 <a href="{{url('/admin/logout')}}" class="btn btn-default btn-flat">退出系统</a>

@@ -19,14 +19,16 @@ class AuthController extends Controller
     /**
      * 后台登录功能的显示页面
      */
-    public function index(){
+    public function index()
+    {
         return view('backend.auth.index');
     }
 
     /**
      * 后台登录
      */
-    public function login(){
+    public function login()
+    {
         //验证
         $this->validate(request(), [
             'username' => 'required',
@@ -38,9 +40,9 @@ class AuthController extends Controller
         $password = request('password');
         $model = new AdminUserModel();
         //渲染
-        if($model->login($username,$password)){
+        if ($model->login($username, $password)) {
             return redirect('admin');
-        }else{
+        } else {
             return back()->withInput()->withErrors("账号密码不匹配");
         }
     }
@@ -48,8 +50,17 @@ class AuthController extends Controller
     /**
      * 后台登出
      */
-    public function logout(){
+    public function logout()
+    {
         \Auth::logout();
         return redirect('admin/login');
+    }
+
+    /**
+     * 后台用户修改密码
+     */
+    public function changePwd()
+    {
+        return view("backend.auth.changePwd");
     }
 }

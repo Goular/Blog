@@ -6,5 +6,6 @@ Route::prefix('admin')->group(function () {
     Route::middleware(['admin.identify'])->group(function () {
         Route::get('/', '\App\Admin\Controllers\IndexController@index');
         Route::get('/logout', '\App\Admin\Controllers\AuthController@logout');
+        Route::get('/changepwd', '\App\Admin\Controllers\AuthController@changePwd');
     });
 });
