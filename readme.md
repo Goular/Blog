@@ -164,3 +164,19 @@
         <input type="text" name="usename" placeholder="请输入电话号码" value="{{ old('usename') }}" />
         这里我们运用old 函数返回便可以获取具体上一次提交的值
 </pre>
+
+### 组件@component和slot
+<pre>
+    组件文件内容:
+    <div class="alert alert-danger">
+        <div class="alert-title">{{ $title }}</div>
+        {{ $slot }}
+    </div>
+    
+    使用视图
+    @component('view.alert.danger')
+        @slot('title')
+            abc
+        @endslot
+    @component
+</pre>

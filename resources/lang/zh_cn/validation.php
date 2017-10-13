@@ -92,6 +92,7 @@ return [
         'captcha'  => '验证码',
         'mobile'   => '手机号',
         'password' => '密码',
+        'old_password' => '原始密码',
         'content'  => '内容',
         'identity' => '手机号/用户名',
     ],

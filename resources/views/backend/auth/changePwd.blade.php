@@ -6,38 +6,36 @@
 @section('page-content')
     <div class="row">
         <div class="col-md-4">
-            <div class="box box-primary">
+            <div class="box box-success">
                 <div class="box-header with-border">
-                    <h3 class="box-title">Quick Example</h3>
+                    <h3 class="box-title">修改密码</h3>
                 </div>
                 <!-- /.box-header -->
                 <!-- form start -->
-                <form role="form">
+                <form action="{{url('admin/changepwd')}}" role="form" method="post">
+                    {{csrf_field()}}
                     <div class="box-body">
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Email address</label>
-                            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                            <label for="exampleInputPassword1">原始密码</label>
+                            <input name="old_password" type="password" class="form-control" id="exampleInputPassword1"
+                                   placeholder="请输入原始密码">
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputPassword1">Password</label>
-                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                            <label for="exampleInputPassword2">新密码</label>
+                            <input name="password" type="password" class="form-control" id="exampleInputPassword2" placeholder="请输入新密码">
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputFile">File input</label>
-                            <input type="file" id="exampleInputFile">
-
-                            <p class="help-block">Example block-level help text here.</p>
+                            <label for="exampleInputPassword3">确认密码</label>
+                            <input name="password_confirmation" type="password" class="form-control" id="exampleInputPassword3"
+                                   placeholder="请输入确认密码">
                         </div>
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox"> Check me out
-                            </label>
-                        </div>
+                        @include('backend.layout.errorMsg')
                     </div>
                     <!-- /.box-body -->
 
                     <div class="box-footer">
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="submit" class="btn btn-default pull-left">提交</button>
+                        <button type="reset" class="btn btn-primary pull-right">重置</button>
                     </div>
                 </form>
             </div>

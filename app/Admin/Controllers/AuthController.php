@@ -57,10 +57,36 @@ class AuthController extends Controller
     }
 
     /**
+     * 后台用户修改密码显示内容
+     */
+    public function changePwdIndex()
+    {
+        return view("backend.auth.changePwd");
+    }
+
+    /**
      * 后台用户修改密码
      */
     public function changePwd()
     {
-        return view("backend.auth.changePwd");
+        //验证
+        $this->validate(request(), [
+            'old_password' => 'required|between:6,20',
+            'password' => 'required|between:6,20|confirmed',
+        ]);
+        //逻辑
+        $oldPassword = request('old_password');
+        $newPassword = request('new_password');
+        $repeatPassword = request('repeat_password');
+        $model = new AdminUserModel();
+
+        dd(123456);
+
+        //渲染视图
+        if ($model->changePwd($oldPassword, $newPassword,$repeatPassword)) {
+            return redirect('admin');
+        } else {
+            return back()->withInput()->withErrors("");
+        }
     }
 }

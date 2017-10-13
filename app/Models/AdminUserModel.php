@@ -20,4 +20,14 @@ class AdminUserModel extends BaseModel
         }
         return false;
     }
+
+    /**
+     * 修改密码
+     * @param $oldPassword
+     * @param $newPassword
+     * @param $repeatPassword
+     */
+    public function changePwd($oldPassword, $newPassword,$repeatPassword){
+        return false;
+    }
 }
