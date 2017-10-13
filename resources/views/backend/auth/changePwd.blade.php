@@ -22,14 +22,21 @@
                         </div>
                         <div class="form-group">
                             <label for="exampleInputPassword2">新密码</label>
-                            <input name="password" type="password" class="form-control" id="exampleInputPassword2" placeholder="请输入新密码">
+                            <input name="password" type="password" class="form-control" id="exampleInputPassword2"
+                                   placeholder="请输入新密码">
                         </div>
                         <div class="form-group">
                             <label for="exampleInputPassword3">确认密码</label>
-                            <input name="password_confirmation" type="password" class="form-control" id="exampleInputPassword3"
+                            <input name="password_confirmation" type="password" class="form-control"
+                                   id="exampleInputPassword3"
                                    placeholder="请输入确认密码">
                         </div>
                         @include('backend.layout.errorMsg')
+                        @if(session('status'))
+                            @component("component.alert.success")
+                                {{session('status')}}
+                            @endcomponent
+                        @endif
                     </div>
                     <!-- /.box-body -->
 

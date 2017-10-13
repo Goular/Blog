@@ -61,13 +61,14 @@ class AuthController extends Controller
      */
     public function changePwdIndex()
     {
+        //return bcrypt("123456");
         return view("backend.auth.changePwd");
     }
 
     /**
      * 后台用户修改密码
      */
-    public function changePwd()
+    public function changePwd(Request $request)
     {
         //验证
         $this->validate(request(), [
@@ -75,18 +76,18 @@ class AuthController extends Controller
             'password' => 'required|between:6,20|confirmed',
         ]);
         //逻辑
-        $oldPassword = request('old_password');
-        $newPassword = request('new_password');
-        $repeatPassword = request('repeat_password');
+        $oldPassword = trim(request('old_password'));
+        $newPassword = request('password');
         $model = new AdminUserModel();
-
-        dd(123456);
-
-        //渲染视图
-        if ($model->changePwd($oldPassword, $newPassword,$repeatPassword)) {
-            return redirect('admin');
+        //判断旧密码是否正确
+        if (!$model->judgeOldPassword($oldPassword))
+            return back()->withInput()->withErrors("原始密码错误!");
+        //修改密码
+        if ($model->changePwd($newPassword)) {
+            $request->session()->flash('status', '修改密码成功!');
+            return back();
         } else {
-            return back()->withInput()->withErrors("");
+            return back()->withInput()->withErrors("修改密码失败!");
         }
     }
 }
