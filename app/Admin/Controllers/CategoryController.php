@@ -9,7 +9,7 @@ class CategoryController extends Controller
 {
     public function index()
     {
-        dd(Category::all());
+        return view("backend.category.index");
     }
 
     public function create()
