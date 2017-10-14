@@ -32,6 +32,7 @@
                         <li><a href="#">服务器时间 <span class="pull-right badge bg-green"><?php date_default_timezone_set ('PRC'); echo date("Y-m-d G:i:s");?></span></a></li>
                         <li><a href="#">服务器域名/IP<span class="pull-right badge bg-green"><?php echo $_SERVER['HTTP_HOST'];?></span></a></li>
                         <li><a href="#">当前主机<span class="pull-right badge bg-green"><?php echo $_SERVER["REMOTE_ADDR"];?></span></a></li>
+                        <li><a href="#">Laravel版本<span class="pull-right badge bg-green">{{app()->version()}}</span></a></li>
                     </ul>
                 </div>
                 <!-- /.box-body -->
