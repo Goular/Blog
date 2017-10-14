@@ -2,13 +2,14 @@
 
 namespace App\Admin\Controllers;
 
+use App\Entities\Category;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
     public function index()
     {
-
+        dd(Category::all());
     }
 
     public function create()
