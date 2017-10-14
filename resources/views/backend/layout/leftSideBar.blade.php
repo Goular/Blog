@@ -16,6 +16,18 @@
                     <li><a href="index2.html"><i class="glyphicon glyphicon-plus"></i>分类添加</a></li>
                 </ul>
             </li>
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-user"></i><span>用户管理</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li class="active"><a href="{{url("admin/category")}}"><i class="glyphicon glyphicon-list"></i>用户列表</a></li>
+                    <li><a href="index2.html"><i class="glyphicon glyphicon-plus"></i>用户添加</a></li>
+                </ul>
+            </li>
         </ul>
     </section>
     <!-- /.sidebar -->
