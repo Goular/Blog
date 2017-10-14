@@ -43,7 +43,9 @@
                     </table>
                     {{--分页--}}
                     <div class="row">
-                        <div class="col-md-4"></div>
+                        <div class="col-md-4">
+                            <div class="dataTables_info" id="" role="status" aria-live="polite">共 2570 条记录</div>
+                        </div>
                         <div class="col-md-8">
                             <div class="dataTables_paginate paging_simple_numbers pull-right">
                                 <ul class="pagination">
