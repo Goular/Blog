@@ -3,13 +3,17 @@
 namespace App\Admin\Controllers;
 
 use App\Entities\Category;
+use App\Models\CategoryModel;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
     public function index()
     {
-        return view("backend.category.index");
+        //获取所有的分类
+        $model = new CategoryModel();
+        $categories = $model->getTrees();
+        return view("backend.category.index")->with(['categories' => $categories]);
     }
 
     public function create()

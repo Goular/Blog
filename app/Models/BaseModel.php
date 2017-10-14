@@ -6,6 +6,26 @@ namespace App\Models;
  * Class BaseModel
  * @package App\Models
  */
-class BaseModel{
+class BaseModel
+{
+    /**
+     * 获取树状结构的数据
+     * @param $objects
+     * @param int $id
+     * @param int $level
+     * @return array
+     */
+    protected function getTree($objects, $id = 0, $level = 1)
+    {
+        static $arrs = array();
+        foreach ($objects as $obj) {
+            if ($obj->parent_id == $id) {
+                $obj['level'] = $level;
+                $arrs[] = $obj;
+                $this->getTree($objects, $obj['id'], $level + 1);
+            }
+        }
+        return $arrs;
+    }
 
 }
