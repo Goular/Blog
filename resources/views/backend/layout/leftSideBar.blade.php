@@ -12,7 +12,7 @@
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li class="active"><a href="index.html"><i class="glyphicon glyphicon-list"></i>分类列表</a></li>
+                    <li class="active"><a href="{{url("admin/category")}}"><i class="glyphicon glyphicon-list"></i>分类列表</a></li>
                     <li><a href="index2.html"><i class="glyphicon glyphicon-plus"></i>分类添加</a></li>
                 </ul>
             </li>
