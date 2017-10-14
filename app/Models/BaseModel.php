@@ -15,7 +15,7 @@ class BaseModel
      * @param int $level
      * @return array
      */
-    protected function getTree($objects, $id = 0, $level = 1)
+    protected function getTree($objects, $id = 0, $level = 0)
     {
         static $arrs = array();
         foreach ($objects as $obj) {
