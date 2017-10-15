@@ -22,6 +22,8 @@ class CreateCategoryTable extends Migration
             $table->integer('view')->default(0)->comment('查看次数');
             $table->tinyInteger('order')->default(0)->comment('排序');
             $table->integer('parent_id')->default(0)->comment('父节点');
+            $table->timestamps();
+            $table->softDeletes();
         });
     }
 

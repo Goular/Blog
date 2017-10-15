@@ -22,6 +22,10 @@ class CategoryModel extends BaseModel
      */
     public function changeOrder($id, $value)
     {
-        return false;
+        $category = Category::find($id);
+        if (!isset($category)) return false;
+        $category->order = $value;
+        $category->save();
+        return true;
     }
 }
