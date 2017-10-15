@@ -82,13 +82,8 @@
         function ShowElement(element) {
             var parent = $(element);
             var oldhtml = parent.html();   //获得元素之前的内容
-            //var newobj = document.createElement('input');   //创建一个input元素
-            var newobj = $('<input type="text" class="form-control text-center">');
-            //newobj.type = 'text';   //为newobj元素添加类型
-            //设置newobj失去焦点的事件
-            newobj.blur(function () {
-
-                //parent.innerHTML = this.value ? this.value : oldhtml;   //当触发时判断newobj的值是否为空，为空则不修改，并返回oldhtml。
+            var newobj = $('<input type="number" class="form-control text-center">');
+            newobj.blur(function () {//设置newobj失去焦点的事件
                 var value = $(this).val(); // 获取值
                 value = $.trim(value); // 用jQuery的trim方法删除前后空格
                 parent.empty();
