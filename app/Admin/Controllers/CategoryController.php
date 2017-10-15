@@ -46,4 +46,12 @@ class CategoryController extends Controller
     {
 
     }
+
+    /**
+     * 变更分类的排序级别
+     */
+    public function changeOrder(){
+        dd(request()->all());
+        //return 123458;
+    }
 }

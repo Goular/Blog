@@ -9,5 +9,6 @@ Route::prefix('admin')->group(function () {
         Route::get('changepwd', '\App\Admin\Controllers\AuthController@changePwdIndex');
         Route::post('changepwd', '\App\Admin\Controllers\AuthController@changePwd');
         Route::resource('category', '\App\Admin\Controllers\CategoryController');
+        Route::post('category/changeorder', '\App\Admin\Controllers\CategoryController@changeOrder');
     });
 });

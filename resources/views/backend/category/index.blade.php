@@ -24,7 +24,8 @@
                         <tbody>
                         @foreach ($categories as $category)
                             <tr>
-                                <td class="text-center" ondblclick="ShowElement(this)">{{$category->order}}</td>
+                                <td class="text-center"
+                                    ondblclick="ShowElement(this,'{{$category->id}}')">{{$category->order}}</td>
                                 <td class="text-green">{{str_repeat("|----",$category->level)}}
                                     &nbsp;&nbsp;{{$category->name}}</td>
                                 <td class="text-center">{{$category->title}}</td>
@@ -79,7 +80,7 @@
          * @param element
          * @constructor
         */
-        function ShowElement(element) {
+        function ShowElement(element, id) {
             var parent = $(element);
             var oldhtml = parent.html();   //获得元素之前的内容
             var newobj = $('<input type="number" class="form-control text-center">');
@@ -91,6 +92,30 @@
                     parent.text(oldhtml)
                 } else {
                     parent.text(value);
+                    $.ajax({
+                        type: 'post',
+                        url: '{{url("admin/category/changeorder")}}',
+                        data: {
+                            "_token": '{{csrf_token()}}',
+                            'id': id,
+                            'value': value
+                        },
+                        beforeSend: function (XMLHttpRequest) {
+                            //ShowLoading();
+                        },
+                        success: function (data, textStatus) {
+                            console.dir(data);
+                            window.location.href = "{{url('admin/category')}}";
+                        },
+                        complete: function (XMLHttpRequest, textStatus) {
+                            //HideLoading();
+                        },
+                        error: function () {
+                            //请求出错处理
+                            parent.text(oldhtml);
+                        }
+                    });
+
                 }
             });
             parent.empty();   //设置元素内容为空
