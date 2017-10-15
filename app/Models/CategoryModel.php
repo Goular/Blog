@@ -37,4 +37,5 @@ class CategoryModel extends BaseModel
     {
         return Category::where('parent_id', $parent_id)->orderBy('order', 'asc')->get();
     }
+
 }

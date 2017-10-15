@@ -26,7 +26,27 @@ class CategoryController extends CommonController
 
     public function store(Request $request)
     {
+        //校验
+        $this->validate($request, [
+            "parent_id" => "required|numeric",
+            "name" => "required|unique:categories,name",
+            "title" => "required",
+            "keywords" => "nullable",
+            "description" => "nullable",
+            "order" => "nullable|numeric",
+        ], [
+            'name.required' => '分类名称不能为空',
+            'title.required' => '分类标题不能为空',
+            'order.numeric' => '分类排序必须是数字',
+        ]);
 
+        //逻辑 && 渲染
+        $entity = new Category();
+        if ($entity->create(request()->all())) {
+            return redirect("admin/category");
+        }else{
+            return back()->withInput()->withErrors("添加失败");
+        }
     }
 
     public function show($id)
