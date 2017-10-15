@@ -87,7 +87,8 @@
 {{--<script src="{{asset('adminlte/js/pages/dashboard.js')}}"></script>--}}
 <!-- AdminLTE for demo purposes -->
 <script src="{{asset('adminlte/js/demo.js')}}"></script>
-
+{{--自定义js文件--}}
+<script src="{{asset('js/goular.js')}}"></script>
 @yield('page-js')
 
 </body>

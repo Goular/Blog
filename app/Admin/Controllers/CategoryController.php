@@ -18,6 +18,7 @@ class CategoryController extends Controller
 
     public function create()
     {
+
         return view("backend.category.create");
     }
 
@@ -33,7 +34,7 @@ class CategoryController extends Controller
 
     public function edit($id)
     {
-
+        return view("backend.category.update");
     }
 
     public function update(Request $request, $id)
