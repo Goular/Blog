@@ -61,22 +61,19 @@ class CategoryController extends CommonController
             'id.numeric' => 'ID字段必须是数字',
             'value.numeric' => '排序值必须是数字',
         ]);
-
-        if ($validator->fails()) {
-            $errors = $validator->errors()->all();
-            $errorMsg = '';
-            if (count($errors) > 0) {
-                $errorMsg = implode(",", $errors);
-            } else {
-                $errorMsg = "未知异常";
-            }
-            return $this->toJson(null, -1, $errorMsg);
+        //验证失败返回json数据
+        if ($validator->fails())
+            return $this->toJson(null, -1, $this->compactAjaxErrorsMsg($validator));
+        //进行逻辑操作
+        $id = request('id');
+        $value = request('value');
+        $model = new CategoryModel();
+        if ($model->changeOrder($id, $value)) {
+            //更新成功
+            return $this->ajaxSuccessOperate();
+        } else {
+            //更新失败
+            return $this->ajaxFailOperate();
         }
-
-
-
-
-        dd(request()->all());
-        //return 123458;
     }
 }

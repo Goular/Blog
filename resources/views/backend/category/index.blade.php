@@ -97,15 +97,15 @@
                         url: '{{url("admin/category/changeorder")}}',
                         data: {
                             "_token": '{{csrf_token()}}',
-                            'id': '',
-                            'value': 'po'
+                            'id': id,
+                            'value': value
                         },
                         beforeSend: function (XMLHttpRequest) {
                             //ShowLoading();
                         },
                         success: function (data, textStatus) {
                             console.dir(data);
-                            window.location.href = "{{url('admin/category')}}";
+                            //window.location.href = "{{url('admin/category')}}";
                         },
                         complete: function (XMLHttpRequest, textStatus) {
                             //HideLoading();
