@@ -17,14 +17,11 @@
                         <div class="form-group">
                             <label for="inputEmail3" class="col-sm-2 control-label">父级分类</label>
                             <div class="col-sm-10">
-                                <select class="form-control select2" style="width: 100%;">
-                                    <option selected="selected">Alabama</option>
-                                    <option>Alaska</option>
-                                    <option>California</option>
-                                    <option>Delaware</option>
-                                    <option>Tennessee</option>
-                                    <option>Texas</option>
-                                    <option>Washington</option>
+                                <select name="cate_pid" class="form-control select2" style="width: 100%;">
+                                    <option value="0">==顶级分类==</option>
+                                    @foreach($categories as $category)
+                                        <option value="{{$category->id}}">{{$category->name}}</option>
+                                    @endforeach
                                 </select>
                             </div>
                         </div>

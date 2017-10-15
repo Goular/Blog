@@ -18,8 +18,10 @@ class CategoryController extends CommonController
 
     public function create()
     {
-
-        return view("backend.category.create");
+        $model = new CategoryModel();
+        //获取父级分类
+        $categories = $model->getChildrenCategories(0);
+        return view("backend.category.create", compact('categories'));
     }
 
     public function store(Request $request)

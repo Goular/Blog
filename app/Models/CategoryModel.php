@@ -10,7 +10,7 @@ class CategoryModel extends BaseModel
      */
     public function getTrees()
     {
-        $categories = Category::orderBy('order','asc')->get();
+        $categories = Category::orderBy('order', 'asc')->get();
         $trees = $this->getTree($categories);
         return $trees;
     }
@@ -27,5 +27,14 @@ class CategoryModel extends BaseModel
         $category->order = $value;
         $category->save();
         return true;
+    }
+
+    /**
+     * 获取指定父节点的一级子节点
+     * @param int $parent_id
+     */
+    public function getChildrenCategories($parent_id = 0)
+    {
+        return Category::where('parent_id', $parent_id)->orderBy('order', 'asc')->get();
     }
 }
