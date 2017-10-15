@@ -104,7 +104,12 @@
                             //ShowLoading();
                         },
                         success: function (data, textStatus) {
-                            console.dir(data);
+                            if (data.code > 0) {
+                                layer.alert(data.message, {icon: 6});
+                            }else{
+                                layer.alert(data.message, {icon: 5});
+                                parent.text(oldhtml)
+                            }
                             //window.location.href = "{{url('admin/category')}}";
                         },
                         complete: function (XMLHttpRequest, textStatus) {

@@ -27,7 +27,8 @@
 
     <!-- Google Font -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
-
+    {{--弹出框 框架Layer--}}
+    <link rel="stylesheet" href="{{url('layui/css/layui.css')}}">
     @yield('page-css')
 </head>
 <body class="hold-transition skin-green-light sidebar-mini">
@@ -89,6 +90,8 @@
 <script src="{{asset('adminlte/js/demo.js')}}"></script>
 {{--自定义js文件--}}
 <script src="{{asset('js/goular.js')}}"></script>
+{{--弹出层 layer框架--}}
+<script src="{{asset('layui/layui.all.js')}}"></script>
 @yield('page-js')
 
 </body>

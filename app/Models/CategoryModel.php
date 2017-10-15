@@ -10,7 +10,7 @@ class CategoryModel extends BaseModel
      */
     public function getTrees()
     {
-        $categories = Category::all();
+        $categories = Category::orderBy('order','asc')->get();
         $trees = $this->getTree($categories);
         return $trees;
     }
