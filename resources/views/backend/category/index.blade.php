@@ -97,8 +97,8 @@
                         url: '{{url("admin/category/changeorder")}}',
                         data: {
                             "_token": '{{csrf_token()}}',
-                            'id': id,
-                            'value': value
+                            'id': '',
+                            'value': 'po'
                         },
                         beforeSend: function (XMLHttpRequest) {
                             //ShowLoading();

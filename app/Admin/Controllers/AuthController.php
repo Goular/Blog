@@ -11,7 +11,7 @@ use Illuminate\Http\Request;
  * Class AuthController
  * @package App\Admin\Controllers
  */
-class AuthController extends Controller
+class AuthController extends CommonController
 {
     //添加官方Auth的Trait
     use AuthenticatesUsers;

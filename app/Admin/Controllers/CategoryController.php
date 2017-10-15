@@ -6,7 +6,7 @@ use App\Entities\Category;
 use App\Models\CategoryModel;
 use Illuminate\Http\Request;
 
-class CategoryController extends Controller
+class CategoryController extends CommonController
 {
     public function index()
     {
@@ -50,7 +50,32 @@ class CategoryController extends Controller
     /**
      * 变更分类的排序级别
      */
-    public function changeOrder(){
+    public function changeOrder()
+    {
+        $validator = \Validator::make(request()->all(), [
+            'id' => 'required|numeric',
+            'value' => 'required|numeric'
+        ], [
+            'id.required' => 'ID字段不能为空',
+            'value.required' => '排序值不能为空',
+            'id.numeric' => 'ID字段必须是数字',
+            'value.numeric' => '排序值必须是数字',
+        ]);
+
+        if ($validator->fails()) {
+            $errors = $validator->errors()->all();
+            $errorMsg = '';
+            if (count($errors) > 0) {
+                $errorMsg = implode(",", $errors);
+            } else {
+                $errorMsg = "未知异常";
+            }
+            return $this->toJson(null, -1, $errorMsg);
+        }
+
+
+
+
         dd(request()->all());
         //return 123458;
     }

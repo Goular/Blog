@@ -5,7 +5,7 @@ namespace App\Admin\Controllers;
 use App\Entities\User;
 use Illuminate\Http\Request;
 
-class IndexController extends Controller
+class IndexController extends CommonController
 {
 
     public function index(){
