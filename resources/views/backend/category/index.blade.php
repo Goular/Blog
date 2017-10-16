@@ -30,8 +30,12 @@
                                     &nbsp;&nbsp;{{$category->name}}</td>
                                 <td class="text-center">{{$category->title}}</td>
                                 <td class="text-center">{{$category->view}}</td>
-                                <td class="text-center"><a href="#" class="text-green">修改</a>&nbsp;&nbsp;&nbsp;&nbsp;<a
-                                            href="#" class="text-green">删除</a></td>
+                                <td class="text-center">
+                                    <a href="{{url('admin/category/'.$category->id.'/edit')}}"
+                                       class="text-green">修改</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <a href="javascript:void(0);" onclick="delCategory(this,{{$category->id}})"
+                                       class="text-green">删除</a>
+                                </td>
                             </tr>
                         @endforeach
                         </tbody>
@@ -106,11 +110,11 @@
                         success: function (data, textStatus) {
                             if (data.code > 0) {
                                 layer.alert(data.message, {icon: 6});
-                            }else{
+                            } else {
                                 layer.alert(data.message, {icon: 5});
                                 parent.text(oldhtml)
                             }
-                            //window.location.href = "{{url('admin/category')}}";
+                            //window.location.href = "admin/category";
                         },
                         complete: function (XMLHttpRequest, textStatus) {
                             //HideLoading();
@@ -126,6 +130,31 @@
             parent.empty();   //设置元素内容为空
             parent.append(newobj);   //添加子元素
             newobj.focus();   //获得焦点
+        }
+        /**
+         * 点击删除按钮，弹出提示框，确认发送删除分类的请求
+         */
+        function delCategory(view, id) {
+            $.ajax({
+                type: 'post',
+                url: '{{url("admin/category/")}}/' + id,
+                data: {
+                    "_token": '{{csrf_token()}}',
+                    '_method': 'delete',
+                },
+                beforeSend: function (XMLHttpRequest) {
+                    //ShowLoading();
+                },
+                success: function (data, textStatus) {
+                    console.dir(data);
+                },
+                complete: function (XMLHttpRequest, textStatus) {
+                    //HideLoading();
+                },
+                error: function () {
+
+                }
+            });
         }
     </script>
 @endsection

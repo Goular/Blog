@@ -66,7 +66,7 @@ class CategoryController extends CommonController
 
     public function destroy($id)
     {
-
+        return $this->ajaxSuccessOperate();
     }
 
     /**
