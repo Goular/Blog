@@ -33,7 +33,7 @@
                                 <td class="text-center">
                                     <a href="{{url('admin/category/'.$category->id.'/edit')}}"
                                        class="text-green">修改</a>&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <a href="javascript:void(0);" onclick="delCategory(this,{{$category->id}})"
+                                    <a href="javascript:void(0);" onclick="delCategory(this,'{{$category->name}}',{{$category->id}})"
                                        class="text-green">删除</a>
                                 </td>
                             </tr>
@@ -108,7 +108,7 @@
                             //ShowLoading();
                         },
                         success: function (data, textStatus) {
-                            if (data.code > 0) {
+                            if (data.status > 0) {
                                 layer.alert(data.message, {icon: 6});
                             } else {
                                 layer.alert(data.message, {icon: 5});
@@ -134,26 +134,37 @@
         /**
          * 点击删除按钮，弹出提示框，确认发送删除分类的请求
          */
-        function delCategory(view, id) {
-            $.ajax({
-                type: 'post',
-                url: '{{url("admin/category/")}}/' + id,
-                data: {
-                    "_token": '{{csrf_token()}}',
-                    '_method': 'delete',
-                },
-                beforeSend: function (XMLHttpRequest) {
-                    //ShowLoading();
-                },
-                success: function (data, textStatus) {
-                    console.dir(data);
-                },
-                complete: function (XMLHttpRequest, textStatus) {
-                    //HideLoading();
-                },
-                error: function () {
+        function delCategory(view, name, id) {
 
-                }
+            layer.confirm('是否对 ' + name + ' 进行删除操作', {
+                btn: ['确定', '取消'] //按钮
+            }, function () {
+                $.ajax({
+                    type: 'post',
+                    url: '{{url("admin/category/")}}/' + id,
+                    data: {
+                        "_token": '{{csrf_token()}}',
+                        '_method': 'delete',
+                    },
+                    beforeSend: function (XMLHttpRequest) {
+                        //ShowLoading();
+                    },
+                    success: function (data, textStatus) {
+                        if (data.status > 0) {
+                            layer.alert(data.message, {icon: 6});
+                        } else {
+                            layer.alert(data.message, {icon: 5});
+                        }
+                        window.location.href = '{{url("admin/category")}}';
+                    },
+                    complete: function (XMLHttpRequest, textStatus) {
+                        //HideLoading();
+                    },
+                    error: function () {
+                        layer.alert("删除失败", {icon: 5});
+                    }
+                });
+            }, function () {
             });
         }
     </script>

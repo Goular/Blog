@@ -95,12 +95,12 @@ class CategoryController extends CommonController
 
     public function destroy($id)
     {
-        return "112233";
-//        if(Category::delete($id)){
-//            return $this->ajaxSuccessOperate('删除成功');
-//        }else{
-//            return $this->ajaxFailOperate('删除失败');
-//        }
+        $model = Category::find($id);
+        if ($model->delete()) {
+            return $this->ajaxSuccessOperate('删除成功');
+        } else {
+            return $this->ajaxFailOperate('删除失败');
+        }
     }
 
     /**
