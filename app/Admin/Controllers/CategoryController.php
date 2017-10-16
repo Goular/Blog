@@ -95,7 +95,12 @@ class CategoryController extends CommonController
 
     public function destroy($id)
     {
-        return $this->ajaxSuccessOperate();
+        return "112233";
+//        if(Category::delete($id)){
+//            return $this->ajaxSuccessOperate('删除成功');
+//        }else{
+//            return $this->ajaxFailOperate('删除失败');
+//        }
     }
 
     /**
