@@ -45,7 +45,7 @@ class CategoryController extends CommonController
         $entity = new Category();
         if ($entity->create(request()->all())) {
             return redirect("admin/category");
-        }else{
+        } else {
             return back()->withInput()->withErrors("添加失败");
         }
     }
@@ -62,7 +62,7 @@ class CategoryController extends CommonController
             //获取父级分类
             $categories = $model->getChildrenCategories(0);
             $selectCate = Category::findOrFail($id);
-            return view("backend.category.update",compact('categories','selectCate'));
+            return view("backend.category.update", compact('categories', 'selectCate'));
         } catch (ModelNotFoundException $e) {
             return back();
         }
@@ -71,7 +71,26 @@ class CategoryController extends CommonController
 
     public function update(Request $request, $id)
     {
-
+        $this->validate($request, [
+            "parent_id" => "required|numeric",
+            "title" => "required",
+            "keywords" => "nullable",
+            "description" => "nullable",
+            "order" => "nullable|numeric",
+        ], [
+            'title.required' => '分类标题不能为空',
+            'order.numeric' => '分类排序必须是数字',
+        ]);
+        $model = Category::find($id);
+        if ($model) {
+            if ($model->update(request()->all())) {
+                return redirect("admin/category");
+            } else {
+                return back()->withInput()->withErrors("修改失败");
+            }
+        } else {
+            return back()->withInput()->withErrors("修改的分类找不到");
+        }
     }
 
     public function destroy($id)

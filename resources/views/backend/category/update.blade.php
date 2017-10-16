@@ -28,10 +28,9 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="name" class="col-sm-2 control-label">分类名称<label
-                                        class="text-red">(必填)</label></label>
+                            <label for="name" class="col-sm-2 control-label">分类名称</label>
                             <div class="col-sm-10">
-                                <input name="name" type="text" class="form-control" id="name" placeholder="请输入分类名称" value="{{$selectCate->name}}">
+                                <input name="name" type="text" disabled class="form-control" id="name" placeholder="请输入分类名称" value="{{$selectCate->name}}">
                             </div>
                         </div>
                         <div class="form-group">
