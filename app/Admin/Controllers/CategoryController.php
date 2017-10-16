@@ -4,6 +4,7 @@ namespace App\Admin\Controllers;
 
 use App\Entities\Category;
 use App\Models\CategoryModel;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 
 class CategoryController extends CommonController
@@ -56,7 +57,16 @@ class CategoryController extends CommonController
 
     public function edit($id)
     {
-        return view("backend.category.update");
+        try {
+            $model = new CategoryModel();
+            //获取父级分类
+            $categories = $model->getChildrenCategories(0);
+            $selectCate = Category::findOrFail($id);
+            return view("backend.category.update",compact('categories','selectCate'));
+        } catch (ModelNotFoundException $e) {
+            return back();
+        }
+
     }
 
     public function update(Request $request, $id)
