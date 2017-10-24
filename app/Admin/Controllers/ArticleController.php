@@ -4,12 +4,7 @@ namespace App\Admin\Controllers;
 
 use Illuminate\Http\Request;
 
-/**
- * 博客文章使用的控制器
- * Class ArticleController
- * @package App\Admin\Controllers
- */
-class ArticleController extends CommonController
+class ArticleController extends Controller
 {
     public function index()
     {
