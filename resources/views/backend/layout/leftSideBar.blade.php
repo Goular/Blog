@@ -6,6 +6,18 @@
             {{--<li class="header">主导航</li>--}}
             <li class="active treeview">
                 <a href="#">
+                    <i class="fa fa-newspaper-o"></i><span>文章管理</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li class="active"><a href="{{url("admin/article")}}"><i class="fa fa-paper-plane"></i>文章列表</a></li>
+                    <li><a href="{{url("admin/article/create")}}"><i class="glyphicon glyphicon-plus"></i>文章添加</a></li>
+                </ul>
+            </li>
+            <li class="treeview">
+                <a href="#">
                     <i class="glyphicon glyphicon-sort-by-alphabet"></i><span>分类管理</span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
