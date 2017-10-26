@@ -11,7 +11,8 @@
         "laravel/framework": "5.5.*",
         "laravel/tinker": "~1.0",
         "mews/captcha": "^2.1",
-        "overtrue/easy-sms": "^0.0.9"
+        "overtrue/easy-sms": "^0.0.9",
+        "overtrue/laravel-filesystem-qiniu": "^1.0"
     },
     "require-dev": {
         "filp/whoops": "~2.0",
