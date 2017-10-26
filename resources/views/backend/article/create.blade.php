@@ -46,7 +46,7 @@
                         <div class="form-group">
                             <label for="keywords" class="col-sm-1 control-label">缩略图</label>
                             <div class="col-sm-11">
-                                <input type="text" disabled class="form-control" name="thumb" value="{{old('thumb')}}">
+                                <input type="text" readonly class="form-control" name="thumb" value="{{old('thumb')}}">
                                 <input id="file_upload" class="" name="file_upload" type="file" multiple="true">
                                 <img src="" alt="" id="art_thumb_img" style="max-width: 350px; max-height:100px;">
                             </div>
@@ -95,6 +95,7 @@
 
 @section('page-js')
     <script src="{{asset('uploadify/jquery.uploadify.min.js')}}" type="text/javascript"></script>
+    {{--uploadify上传插件多次调用uploadify.swf并且有两次是canceled状态 这个uploadify控件会出现两次加载页面的问题，暂时没有影响实际操作，可能会有点慢而已，到以后再去更换一个好一点的库吧 ，http://www.bubuko.com/infodetail-1170589.html--}}
     <script type="text/javascript">
         <?php $timestamp = time();?>
         $(function () {
