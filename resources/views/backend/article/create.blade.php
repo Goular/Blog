@@ -31,13 +31,15 @@
                             <label for="name" class="col-sm-1 control-label">文章标题<label
                                         class="text-red">(必填)</label></label>
                             <div class="col-sm-11">
-                                <input name="title" type="text" class="form-control" id="name" placeholder="请输入文章标题" value="{{old('title')}}"/>
+                                <input name="title" type="text" class="form-control" id="name" placeholder="请输入文章标题"
+                                       value="{{old('title')}}"/>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="title" class="col-sm-1 control-label">编辑者</label>
                             <div class="col-sm-11">
-                                <input name="editor" type="text" class="form-control" id="title" value="{{old('editor')}}"
+                                <input name="editor" type="text" class="form-control" id="title"
+                                       value="{{old('editor')}}"
                                        placeholder="请输入编辑者名称"/>
                             </div>
                         </div>
@@ -52,22 +54,31 @@
                         <div class="form-group">
                             <label for="description" class="col-sm-1 control-label">关键词</label>
                             <div class="col-sm-11">
-                                <input name="tag" type="text" class="form-control" id="description" rows="3" value="{{old('tag')}}"
+                                <input name="tag" type="text" class="form-control" id="description" rows="3"
+                                       value="{{old('tag')}}"
                                        placeholder="请输入关键词"/>
                             </div>
                         </div>
+                        {{--<div class="form-group">--}}
+                        {{--<label for="keywords" class="col-sm-1 control-label">正文<label class="text-red">(必填)</label></label>--}}
+                        {{--<div class="col-sm-11">--}}
+                        {{--<script type="text/javascript" charset="utf-8"--}}
+                        {{--src="{{asset('ueditor/ueditor.config.js')}}"></script>--}}
+                        {{--<script type="text/javascript" charset="utf-8"--}}
+                        {{--src="{{asset('ueditor/ueditor.all.min.js')}}"></script>--}}
+                        {{--<script type="text/javascript" charset="utf-8"--}}
+                        {{--src="{{asset('ueditor/lang/zh-cn/zh-cn.js')}}"></script>--}}
+                        {{--<script id="editor" name="content" type="text/plain" style="height:500px;" value="{{old('content')}}"></script>--}}
+                        {{--</div>--}}
+                        {{--</div>--}}
+
                         <div class="form-group">
                             <label for="keywords" class="col-sm-1 control-label">正文<label class="text-red">(必填)</label></label>
                             <div class="col-sm-11">
-                                <script type="text/javascript" charset="utf-8"
-                                        src="{{asset('ueditor/ueditor.config.js')}}"></script>
-                                <script type="text/javascript" charset="utf-8"
-                                        src="{{asset('ueditor/ueditor.all.min.js')}}"></script>
-                                <script type="text/javascript" charset="utf-8"
-                                        src="{{asset('ueditor/lang/zh-cn/zh-cn.js')}}"></script>
-                                <script id="editor" name="content" type="text/plain" style="height:500px;" value="{{old('content')}}"></script>
+                                <textarea name="content" id="editor" style="height:1000px; width: 100%"></textarea>
                             </div>
                         </div>
+
                     </div>
                     <!-- /.box-body -->
                     <div class="box-footer">
@@ -103,11 +114,16 @@
             });
         });
     </script>
-    <script type="text/javascript">
-        var ue = UE.getEditor('editor');
-        ue.ready(function() {
-            ue.setContent("{!!old('content')!!}");
-        });
+    {{--<script type="text/javascript">--}}
+    {{--var ue = UE.getEditor('editor');--}}
+    {{--ue.ready(function() {--}}
+    {{--ue.setContent("{!!old('content')!!}");--}}
+    {{--});--}}
+    {{--</script>--}}
+
+    <script src="{{asset("ckeditor/ckeditor.js")}}"></script>
+    <script>
+        CKEDITOR.replace('editor',{ height: '600px', width: '100%' });
     </script>
 @endsection
 
