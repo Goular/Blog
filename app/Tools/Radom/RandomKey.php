@@ -14,7 +14,7 @@ class RandomKey
         $pattern = '1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLOMNOPQRSTUVWXYZ';
         $output = '';
         for ($i = 0; $i < $length; $i++) {
-            $output .= $pattern{mt_rand(0, 63)};    //生成php随机数
+            $output .= $pattern{mt_rand(0, 62)};    //生成php随机数
         }
         return $output;
     }

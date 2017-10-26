@@ -75,7 +75,7 @@
                         <div class="form-group">
                             <label for="keywords" class="col-sm-1 control-label">正文<label class="text-red">(必填)</label></label>
                             <div class="col-sm-11">
-                                <textarea name="content" id="editor" style="height:1000px; width: 100%"></textarea>
+                                <textarea name="content" id="editor" style="height:1000px; width: 100%">{!!old('content')!!}</textarea>
                             </div>
                         </div>
 
@@ -114,6 +114,8 @@
             });
         });
     </script>
+
+
     {{--<script type="text/javascript">--}}
     {{--var ue = UE.getEditor('editor');--}}
     {{--ue.ready(function() {--}}
@@ -123,7 +125,13 @@
 
     <script src="{{asset("ckeditor/ckeditor.js")}}"></script>
     <script>
-        CKEDITOR.replace('editor',{ height: '600px', width: '100%' });
+        CKEDITOR.replace('editor', {
+            height: '600px',
+            width: '100%',
+            //文章上传图片的地址
+            filebrowserImageUploadUrl: "/admin/upload_article_content?_token={{csrf_token()}}"
+        })
+        ;
     </script>
 @endsection
 

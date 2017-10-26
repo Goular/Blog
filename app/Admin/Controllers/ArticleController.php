@@ -12,8 +12,9 @@ class ArticleController extends CommonController
 {
     public function index()
     {
-        $articles = Article::orderBy("updated_at", "desc")->paginate(10);
-        return view("backend.article.index", compact('articles'));
+        return "112233";
+        //$articles = Article::orderBy("updated_at", "desc")->paginate(10);
+        //return view("backend.article.index", compact('articles'));
     }
 
     public function create()
@@ -70,9 +71,9 @@ class ArticleController extends CommonController
     }
 
     /**
-     * 图片上传
+     * 缩略图上传
      */
-    public function upload(Request $request)
+    public function upload_thumb(Request $request)
     {
         $file = $request->file('Filedata');
         if ($file->isValid()) {//判断文件是否有效
@@ -83,6 +84,26 @@ class ArticleController extends CommonController
             $saveFilePath = 'uploads/article_thumb/' . $newName;
             if ($fileUpload->saveFile($saveFilePath, $file->getRealPath())) return $this->toJson(["fileDomain" => "http://" . env('QINIU_DOMAIN') . '/', "filePath" => $saveFilePath]);
             else return $this->ajaxFailOperate("上传文件失败!");
+        }
+    }
+
+    /**
+     * 文章内容图片上传,可能包含各种内容
+     */
+    public function upload_content(Request $request)
+    {
+        $file = $request->file('upload');
+        $cb = request("CKEditorFuncNum"); //获得ck的回调id
+        if ($file->isValid()) {//判断文件是否有效
+            $entension = $file->getClientOriginalExtension(); //获取上传文件的后缀.
+            $fileUpload = new FileUpload();
+            $randomKey = new RandomKey();
+            $newName = date('YmdHis') . '@' . $randomKey->randomkeys(8) . '.' . $entension;
+            $saveFilePath = 'uploads/article_content/' . $newName;
+            $showFilePath = 'http://' . env('QINIU_DOMAIN') . '/'.$saveFilePath;
+            if ($fileUpload->saveFile($saveFilePath, $file->getRealPath()))
+                return "<script>window.parent.CKEDITOR.tools.callFunction('$cb', '$showFilePath', '');</script>";
+            else return "<script>window.parent.CKEDITOR.tools.callFunction($cb, '', '上传失败!');</script>"; //图片上传失败，通知ck失败消息
         }
     }
 }
