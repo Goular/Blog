@@ -21,23 +21,19 @@ class FileUpload
     }
 
     /**
-     * 创建文件
-     * @param $fileName 文件名称[这个最好带文件尾缀]
-     * @param $contents 保存的内容，即$file资源,二进制资源
-     *
-     * 测试代码:
-     * $fileUpload = new FileUpload();
-     * $flag = $fileUpload->createFile('test003','这是测试的内容');
-     * dd($flag);
+     * 保存文件
+     * @param $saveFilePath 保存文件的路径，除了域名外的所有路径: app/ave/102.png
+     * @param $currentFilePath 当前文件的保存路径，用于提取二进制流，用于输出
+     * @return bool
      */
-    public function createFile($fileName, $contents)
+    public function saveFile($saveFilePath, $currentFilePath)
     {
         try {
-            $this->disk->put($fileName, $contents);
+            $this->disk->put($saveFilePath,fopen($currentFilePath,"r"));
             return true;
         } catch (\ErrorException $e) {
             $info = __METHOD__;
-            \Log::error('文件上传异常', compact('info', 'fileName'));
+            \Log::error('文件上传异常', compact('info', '$saveFilePath'));
             return false;
         }
     }

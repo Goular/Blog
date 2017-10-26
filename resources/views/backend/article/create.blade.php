@@ -44,10 +44,9 @@
                         <div class="form-group">
                             <label for="keywords" class="col-sm-1 control-label">缩略图</label>
                             <div class="col-sm-11">
-                                {{--<input name="thumb" type="text" class="form-control" id="description" rows="3" placeholder="请输入缩略"/>--}}
-                                <input type="text" size="50" name="thumb">
-                                <input id="file_upload" name="file_upload" type="file" multiple="true">
-
+                                <input type="text" class="form-control" name="thumb">
+                                <input id="file_upload" class="" name="file_upload" type="file" multiple="true">
+                                <img src="" alt="" id="art_thumb_img" style="max-width: 350px; max-height:100px;">
                             </div>
                         </div>
                         <div class="form-group">
@@ -87,19 +86,19 @@
     <script src="{{asset('uploadify/jquery.uploadify.min.js')}}" type="text/javascript"></script>
     <script type="text/javascript">
         <?php $timestamp = time();?>
-        $(function() {
+        $(function () {
             $('#file_upload').uploadify({
-                'buttonText' : '图片上传',
-                'formData'     : {
-                    'timestamp' : '<?php echo $timestamp;?>',
-                    '_token'     : "{{csrf_token()}}"
+                'buttonText': '图片上传',
+                'formData': {
+                    'timestamp': '<?php echo $timestamp;?>',
+                    '_token': "{{csrf_token()}}"
                 },
-                'swf'      : "{{asset('uploadify/uploadify.swf')}}",
-                'uploader' : "{{url('admin/upload')}}",
-                'onUploadSuccess' : function(file, data, response) {
-                    $('input[name=art_thumb]').val(data);
-                    $('#art_thumb_img').attr('src','/'+data);
-//                                    alert(data);
+                'swf': "{{asset('uploadify/uploadify.swf')}}",
+                'uploader': "{{url('admin/upload_article_thumb')}}",
+                'onUploadSuccess': function (file, data, response) {
+                    var obj = JSON.parse(data);
+                    $('input[name=thumb]').val(obj.data.filePath);
+                    $('#art_thumb_img').attr('src', obj.data.fileDomain + obj.data.filePath);
                 }
             });
         });
@@ -128,8 +127,19 @@
 
     <link rel="stylesheet" type="text/css" href="{{asset('uploadify/uploadify.css')}}">
     <style>
-        .uploadify{display:inline-block;}
-        .uploadify-button{border:none; border-radius:5px; margin-top:8px;}
-        table.add_tab tr td span.uploadify-button-text{color: #FFF; margin:0;}
+        .uploadify {
+            display: inline-block;
+        }
+
+        .uploadify-button {
+            border: none;
+            border-radius: 5px;
+            margin-top: 8px;
+        }
+
+        table.add_tab tr td span.uploadify-button-text {
+            color: #FFF;
+            margin: 0;
+        }
     </style>
 @endsection

@@ -3,6 +3,8 @@
 namespace App\Admin\Controllers;
 
 use App\Models\CategoryModel;
+use App\Tools\Radom\RandomKey;
+use App\Tools\Storage\FileUpload;
 use Illuminate\Http\Request;
 
 class ArticleController extends CommonController
@@ -53,11 +55,13 @@ class ArticleController extends CommonController
     {
         $file = $request->file('Filedata');
         if ($file->isValid()) {//判断文件是否有效
-            $entension = $file -> getClientOriginalExtension(); //获取上传文件的后缀.
-            $newName = date('YmdHis').mt_rand(100,999).'.'.$entension;
-            $filepath = 'uploads/admin/'.$newName;
-            //$path = $file -> move(base_path().'/uploads',$newName);
-            return $filepath;
+            $entension = $file->getClientOriginalExtension(); //获取上传文件的后缀.
+            $fileUpload = new FileUpload();
+            $randomKey = new RandomKey();
+            $newName = date('YmdHis') . '@' . $randomKey->randomkeys(8) . '.' . $entension;
+            $saveFilePath = 'uploads/article_thumb/' . $newName;
+            if ($fileUpload->saveFile($saveFilePath, $file->getRealPath())) return $this->toJson(["fileDomain" => "http://" . env('QINIU_DOMAIN') . '/', "filePath" => $saveFilePath]);
+            else return $this->ajaxFailOperate("上传文件失败!");
         }
     }
 }
