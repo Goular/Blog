@@ -54,20 +54,4 @@ class CommonController extends Controller
             return "未知异常";
         }
     }
-
-    /**
-     * 图片上传
-     */
-    public function upload(Request $request)
-    {
-        $file = $request->file('Filedata');
-        if ($file->isValid()) {//判断文件是否有效
-            $entension = $file -> getClientOriginalExtension(); //获取上传文件的后缀.
-            $newName = date('YmdHis').mt_rand(100,999).'.'.$entension;
-
-            //$path = $file -> move(base_path().'/uploads',$newName);
-            $filepath = 'uploads/admin/'.$newName;
-            return $filepath;
-        }
-    }
 }

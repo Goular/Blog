@@ -179,6 +179,8 @@ return [
 
         //2017-10-11 添加验证码 mewebstudio/captcha
         Mews\Captcha\CaptchaServiceProvider::class,
+        //2017-10-26 添加七牛云存储的内容
+        Overtrue\LaravelFilesystem\Qiniu\QiniuStorageServiceProvider::class,
     ],
 
     /*
