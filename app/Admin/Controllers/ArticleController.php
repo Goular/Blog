@@ -17,6 +17,7 @@ class ArticleController extends CommonController
         $model = new CategoryModel();
         //获取父级分类
         $categories = $model->getTrees();
+        //dd($categories);
         return view("backend.article.create", compact('categories'));
     }
 

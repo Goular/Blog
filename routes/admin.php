@@ -11,5 +11,6 @@ Route::prefix('admin')->group(function () {
         Route::resource('category', '\App\Admin\Controllers\CategoryController');
         Route::post('category/changeorder', '\App\Admin\Controllers\CategoryController@changeOrder');
         Route::resource('article', '\App\Admin\Controllers\ArticleController');
+        Route::any('upload', '\App\Admin\Controllers\CommonController@upload');
     });
 });
