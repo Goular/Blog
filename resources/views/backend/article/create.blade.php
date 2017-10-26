@@ -31,20 +31,20 @@
                             <label for="name" class="col-sm-1 control-label">文章标题<label
                                         class="text-red">(必填)</label></label>
                             <div class="col-sm-11">
-                                <input name="title" type="text" class="form-control" id="name" placeholder="请输入文章标题"/>
+                                <input name="title" type="text" class="form-control" id="name" placeholder="请输入文章标题" value="{{old('title')}}"/>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="title" class="col-sm-1 control-label">编辑者</label>
                             <div class="col-sm-11">
-                                <input name="editor" type="text" class="form-control" id="title"
+                                <input name="editor" type="text" class="form-control" id="title" value="{{old('editor')}}"
                                        placeholder="请输入编辑者名称"/>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="keywords" class="col-sm-1 control-label">缩略图</label>
                             <div class="col-sm-11">
-                                <input type="text" class="form-control" name="thumb">
+                                <input type="text" disabled class="form-control" name="thumb" value="{{old('thumb')}}">
                                 <input id="file_upload" class="" name="file_upload" type="file" multiple="true">
                                 <img src="" alt="" id="art_thumb_img" style="max-width: 350px; max-height:100px;">
                             </div>
@@ -52,12 +52,12 @@
                         <div class="form-group">
                             <label for="description" class="col-sm-1 control-label">关键词</label>
                             <div class="col-sm-11">
-                                <input name="tag" type="text" class="form-control" id="description" rows="3"
+                                <input name="tag" type="text" class="form-control" id="description" rows="3" value="{{old('tag')}}"
                                        placeholder="请输入关键词"/>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="keywords" class="col-sm-1 control-label">正文</label>
+                            <label for="keywords" class="col-sm-1 control-label">正文<label class="text-red">(必填)</label></label>
                             <div class="col-sm-11">
                                 <script type="text/javascript" charset="utf-8"
                                         src="{{asset('ueditor/ueditor.config.js')}}"></script>
@@ -65,7 +65,7 @@
                                         src="{{asset('ueditor/ueditor.all.min.js')}}"></script>
                                 <script type="text/javascript" charset="utf-8"
                                         src="{{asset('ueditor/lang/zh-cn/zh-cn.js')}}"></script>
-                                <script id="editor" name="content" type="text/plain" style="height:500px;"></script>
+                                <script id="editor" name="content" type="text/plain" style="height:500px;" value="{{old('content')}}"></script>
                             </div>
                         </div>
                     </div>
@@ -105,6 +105,9 @@
     </script>
     <script type="text/javascript">
         var ue = UE.getEditor('editor');
+        ue.ready(function() {
+            ue.setContent("{!!old('content')!!}");
+        });
     </script>
 @endsection
 

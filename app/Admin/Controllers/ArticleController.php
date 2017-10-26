@@ -2,6 +2,7 @@
 
 namespace App\Admin\Controllers;
 
+use App\Entities\Article;
 use App\Models\CategoryModel;
 use App\Tools\Radom\RandomKey;
 use App\Tools\Storage\FileUpload;
@@ -11,7 +12,8 @@ class ArticleController extends CommonController
 {
     public function index()
     {
-
+        $articles = Article::orderBy("updated_at", "desc")->paginate(10);
+        return view("backend.article.index", compact('articles'));
     }
 
     public function create()
@@ -25,7 +27,26 @@ class ArticleController extends CommonController
 
     public function store(Request $request)
     {
-        dd(request()->all());
+        //校验
+        $this->validate($request, [
+            "cate_id" => "required|numeric",
+            "title" => "required",
+            "editor" => "nullable",
+            "thumb" => "nullable",
+            "tag" => "nullable",
+            "content" => "required",
+        ], [
+            'title.required' => '标题不能为空',
+            'content.required' => '正文不能为空',
+        ]);
+
+        //逻辑 && 渲染
+        $entity = new Article();
+        if ($entity->create(request()->all())) {
+            return redirect("admin/article");
+        } else {
+            return back()->withInput()->withErrors("添加失败");
+        }
     }
 
     public function show($id)
