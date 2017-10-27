@@ -65,8 +65,8 @@
                     </div>
                     <!-- /.box-body -->
                     <div class="box-footer">
-                        <button type="submit" class="btn btn-success">修改</button>
-                        <button type="submit" class="btn btn-default pull-right">重置</button>
+                        <button type="submit" class="btn btn-success center-block">修改</button>
+                        {{--<button type="submit" class="btn btn-default pull-right">重置</button>--}}
                     </div>
                     <!-- /.box-footer -->
                 </form>

@@ -43,7 +43,7 @@ class ArticleController extends CommonController
         //逻辑 && 渲染
         $entity = new Article();
         if ($entity->create(request()->all())) {
-            return redirect("admin/article");
+            return redirect("admin/articles");
         } else {
             return back()->withInput()->withErrors("添加失败");
         }
@@ -56,17 +56,50 @@ class ArticleController extends CommonController
 
     public function edit($id)
     {
-
+        try {
+            $model = new CategoryModel();
+            //获取父级分类
+            $categories = $model->getTrees();
+            $selectArticle = Article::findOrFail($id);
+            return view("backend.article.update", compact('categories', 'selectArticle'));
+        } catch (ModelNotFoundException $e) {
+            return back();
+        }
     }
 
     public function update(Request $request, $id)
     {
-
+        $this->validate($request, [
+            "cate_id" => "required|numeric",
+            "title" => "required",
+            "editor" => "nullable",
+            "thumb" => "nullable",
+            "tag" => "nullable",
+            "content" => "required",
+        ], [
+            'title.required' => '标题不能为空',
+            'content.required' => '正文不能为空',
+        ]);
+        $model = Article::find($id);
+        if ($model) {
+            if ($model->update(request()->all())) {
+                return redirect("admin/articles");
+            } else {
+                return back()->withInput()->withErrors("修改失败");
+            }
+        } else {
+            return back()->withInput()->withErrors("修改的分类找不到");
+        }
     }
 
     public function destroy($id)
     {
-
+        $model = Article::find($id);
+        if ($model->delete()) {
+            return $this->ajaxSuccessOperate('删除成功');
+        } else {
+            return $this->ajaxFailOperate('删除失败');
+        }
     }
 
     /**
@@ -99,7 +132,7 @@ class ArticleController extends CommonController
             $randomKey = new RandomKey();
             $newName = date('YmdHis') . '@' . $randomKey->randomkeys(8) . '.' . $entension;
             $saveFilePath = 'uploads/article_content/' . $newName;
-            $showFilePath = 'http://' . env('QINIU_DOMAIN') . '/'.$saveFilePath;
+            $showFilePath = 'http://' . env('QINIU_DOMAIN') . '/' . $saveFilePath;
             if ($fileUpload->saveFile($saveFilePath, $file->getRealPath()))
                 return "<script>window.parent.CKEDITOR.tools.callFunction('$cb', '$showFilePath', '');</script>";
             else return "<script>window.parent.CKEDITOR.tools.callFunction($cb, '', '上传失败!');</script>"; //图片上传失败，通知ck失败消息

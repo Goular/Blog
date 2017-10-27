@@ -33,7 +33,7 @@
                                 <td class="text-center">
                                     <a href="{{url('admin/articles/'.$article->id.'/edit')}}"
                                        class="text-green">修改</a>&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <a href="javascript:void(0);" onclick="delArticle(this,'{{$article->name}}',{{$article->id}})"
+                                    <a href="javascript:void(0);" onclick="delArticle(this,'{{$article->title}}',{{$article->id}})"
                                        class="text-green">删除</a>
                                 </td>
                             </tr>
@@ -125,7 +125,7 @@
             }, function () {
                 $.ajax({
                     type: 'post',
-                    url: '{{url("admin/article/")}}/' + id,
+                    url: '{{url("admin/articles/")}}/' + id,
                     data: {
                         "_token": '{{csrf_token()}}',
                         '_method': 'delete',
@@ -139,7 +139,7 @@
                         } else {
                             layer.alert(data.message, {icon: 5});
                         }
-                        window.location.href = '{{url("admin/article")}}';
+                        window.location.href = '{{url("admin/articles")}}';
                     },
                     complete: function (XMLHttpRequest, textStatus) {
                         //HideLoading();
