@@ -213,3 +213,19 @@
         }
     }
 </pre>
+
+
+### HTMLPurifier for Laravel 5 使用
+<pre>  
+    default
+        clean(Input::get('inputname'));
+          or
+        Purifier::clean(Input::get('inputname'));
+    
+    dynamic config
+        clean('This is my H1 title', 'titles');
+        clean('This is my H1 title', array('Attr.EnableID' => true));
+            or
+        Purifier::clean('This is my H1 title', 'titles');
+        Purifier::clean('This is my H1 title', array('Attr.EnableID' => true));
+<pre>
