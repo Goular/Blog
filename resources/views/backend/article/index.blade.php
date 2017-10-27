@@ -26,7 +26,10 @@
                         @foreach ($articles as $article)
                             <tr>
                                 <td class="text-center">{{$article->id}}</td>
-                                <td class="text-center"><a class="text text-green" href="{{url("admin/articles/".$article->id)}}">{{$article->title}}</a></td>
+                                {{--带有连接的标题版本--}}
+                                {{--<td class="text-center"><a class="text text-green" href="{{url("admin/articles/".$article->id)}}">{{$article->title}}</a></td>--}}
+                                {{--不带有连接的标题版本--}}
+                                <td class="text-center">{{$article->title}}</td>
                                 <td class="text-center">{{$article->view}}</td>
                                 <td class="text-center">{{$article->editor}}</td>
                                 <td class="text-center">{{$article->updated_at}}</td>
