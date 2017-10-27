@@ -46,7 +46,7 @@ class FriendLinkController extends CommonController
         //逻辑 && 渲染
         $entity = new FriendLink();
         if ($entity->create(request()->all())) {
-            return redirect("admin/friend_link");
+            return redirect("admin/friend_links");
         } else {
             return back()->withInput()->withErrors("添加失败");
         }

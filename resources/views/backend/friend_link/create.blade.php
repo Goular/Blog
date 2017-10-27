@@ -8,54 +8,38 @@
             <!-- Horizontal Form -->
             <div class="box box-success">
                 <div class="box-header with-border">
-                    <h3 class="box-title">分类添加</h3>
+                    <h3 class="box-title">友情链接添加</h3>
                 </div>
                 <!-- /.box-header -->
                 <!-- form start -->
-                <form action="{{url('admin/categories')}}" class="form-horizontal" method="post">
+                <form action="{{url('admin/friend_links')}}" class="form-horizontal" method="post">
                     {{csrf_field()}}
                     <div class="box-body">
                         <div class="form-group">
-                            <label for="inputEmail3" class="col-sm-2 control-label">父级分类</label>
-                            <div class="col-sm-10">
-                                <select name="parent_id" class="form-control select2" style="width: 100%;">
-                                    <option value="0">==顶级分类==</option>
-                                    @foreach($categories as $category)
-                                        <option value="{{$category->id}}">{{$category->name}}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="name" class="col-sm-2 control-label">分类名称<label
+                            <label for="name" class="col-sm-2 control-label">链接名称<label
                                         class="text-red">(必填)</label></label>
                             <div class="col-sm-10">
-                                <input name="name" type="text" class="form-control" id="name" placeholder="请输入分类名称">
+                                <input name="name" type="text" class="form-control" id="name" placeholder="请输入链接名称" value="{{old('name')}}">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="title" class="col-sm-2 control-label">分类标题<label
+                            <label for="title" class="col-sm-2 control-label">链接标题<label
                                         class="text-red">(必填)</label></label>
                             <div class="col-sm-10">
-                                <input name="title" type="text" class="form-control" id="title" placeholder="请输入分类标题">
+                                <input name="title" type="text" class="form-control" id="title" placeholder="请输入链接标题" value="{{old('title')}}">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="keywords" class="col-sm-2 control-label">关键词</label>
+                            <label for="keywords" class="col-sm-2 control-label">URL<label
+                                        class="text-red">(必填)</label></label>
                             <div class="col-sm-10">
-                                <textarea name="keywords" class="form-control" id="keywords" rows="3" placeholder="请输入关键词"></textarea>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="description" class="col-sm-2 control-label">描述</label>
-                            <div class="col-sm-10">
-                                <textarea name="description" class="form-control" id="description" rows="3" placeholder="请输入描述"></textarea>
+                                <input name="url" type="text" class="form-control" id="title" placeholder="请输入URL" value="{{old('url')}}">
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="order" class="col-sm-2 control-label">排序</label>
                             <div class="col-sm-10">
-                                <input name="order" type="number" class="form-control" id="order" placeholder="请输入排序数值" value="0">
+                                <input name="order" type="number" class="form-control" id="order" placeholder="请输入排序" value="{{old('order')}}">
                             </div>
                         </div>
                         @include("backend.layout.errorMsg")
