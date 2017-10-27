@@ -13,5 +13,6 @@ Route::prefix('admin')->group(function () {
         Route::resource('articles', '\App\Admin\Controllers\ArticleController');
         Route::any('upload_article_thumb', '\App\Admin\Controllers\ArticleController@upload_thumb');
         Route::any('upload_article_content', '\App\Admin\Controllers\ArticleController@upload_content');
+        Route::resource('friendlinks', '\App\Admin\Controllers\FriendLinkController');
     });
 });

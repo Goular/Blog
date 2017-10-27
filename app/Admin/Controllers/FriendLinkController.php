@@ -2,6 +2,7 @@
 
 namespace App\Admin\Controllers;
 
+use App\Entities\FriendLink;
 use Illuminate\Http\Request;
 
 /**
@@ -13,7 +14,7 @@ class FriendLinkController extends CommonController
 {
     public function index()
     {
-
+        dd(new FriendLink());
     }
 
     public function create()
