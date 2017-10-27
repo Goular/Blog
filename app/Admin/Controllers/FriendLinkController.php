@@ -17,9 +17,8 @@ class FriendLinkController extends CommonController
     public function index()
     {
         //获取所有的分类
-        $model = new FriendLink();
-        $friendLinks = $model->where("id", "desc")->get();
-        return view("backend.friend_link.index")->with(compact("friendLinks"));
+        $friendLinks = FriendLink::orderBy("order", "desc")->paginate(3);
+        return view("backend.friend_link.index", compact('friendLinks'));
     }
 
     public function create()

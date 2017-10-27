@@ -17,23 +17,23 @@
                             <th class="text-center">排序</th>
                             <th class="text-center">名称</th>
                             <th class="text-center">标题</th>
-                            <th class="text-center">查看次数</th>
+                            <th class="text-center">URL地址</th>
                             <th class="text-center">操作</th>
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach ($categories as $category)
+                        @foreach ($friendLinks as $link)
                             <tr>
                                 <td class="text-center"
-                                    ondblclick="ShowElement(this,'{{$category->id}}')">{{$category->order}}</td>
-                                <td class="text-green">{{str_repeat("|----",$category->level)}}
-                                    &nbsp;&nbsp;{{$category->name}}</td>
-                                <td class="text-center">{{$category->title}}</td>
-                                <td class="text-center">{{$category->view}}</td>
+                                    ondblclick="ShowElement(this,'{{$link->id}}')">{{$link->order}}</td>
+                                {{--<td class="text-center">{{$link->id}}</td>--}}
+                                <td class="text-center">{{$link->name}}</td>
+                                <td class="text-center text-green">{{$link->title}}</td>
+                                <td class="text-center">{{$link->url}}</td>
                                 <td class="text-center">
-                                    <a href="{{url('admin/categories/'.$category->id.'/edit')}}"
+                                    <a href="{{url('admin/friend_links/'.$link->id.'/edit')}}"
                                        class="text-green">修改</a>&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <a href="javascript:void(0);" onclick="delCategory(this,'{{$category->name}}',{{$category->id}})"
+                                    <a href="javascript:void(0);" onclick="delCategory(this,'{{$link->name}}',{{$link->id}})"
                                        class="text-green">删除</a>
                                 </td>
                             </tr>
@@ -98,7 +98,7 @@
                     parent.text(value);
                     $.ajax({
                         type: 'post',
-                        url: '{{url("admin/categories/changeorder")}}',
+                        url: '{{url("admin/friend_links/changeorder")}}',
                         data: {
                             "_token": '{{csrf_token()}}',
                             'id': id,
@@ -141,7 +141,7 @@
             }, function () {
                 $.ajax({
                     type: 'post',
-                    url: '{{url("admin/category/")}}/' + id,
+                    url: '{{url("admin/friend_links/")}}/' + id,
                     data: {
                         "_token": '{{csrf_token()}}',
                         '_method': 'delete',
@@ -155,7 +155,7 @@
                         } else {
                             layer.alert(data.message, {icon: 5});
                         }
-                        window.location.href = '{{url("admin/categories")}}';
+                        window.location.href = '{{url("admin/friend_links")}}';
                     },
                     complete: function (XMLHttpRequest, textStatus) {
                         //HideLoading();
