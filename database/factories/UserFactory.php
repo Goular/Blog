@@ -23,3 +23,12 @@ $factory->define(App\Entities\AdminUser::class, function (Faker $faker) {
         'remember_token' => str_random(10),
     ];
 });
+
+$factory->define(App\Entities\FriendLink::class,function (Faker $faker){
+    return [
+        'name' => $faker->name,
+        'title' => $faker->title,
+        'url' => $faker->url,
+        'order' => $faker->numberBetween(0,1000),
+    ];
+});
