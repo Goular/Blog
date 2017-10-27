@@ -59,6 +59,12 @@
                                        placeholder="请输入关键词"/>
                             </div>
                         </div>
+                        <div class="form-group">
+                            <label for="description" class="col-sm-1 control-label">描述</label>
+                            <div class="col-sm-11">
+                                <textarea name="description" class="form-control" id="description" rows="3" placeholder="请输入描述"></textarea>
+                            </div>
+                        </div>
                         {{--<div class="form-group">--}}
                         {{--<label for="keywords" class="col-sm-1 control-label">正文<label class="text-red">(必填)</label></label>--}}
                         {{--<div class="col-sm-11">--}}
