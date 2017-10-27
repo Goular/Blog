@@ -181,6 +181,8 @@ return [
         Mews\Captcha\CaptchaServiceProvider::class,
         //2017-10-26 添加七牛云存储的内容
         Overtrue\LaravelFilesystem\Qiniu\QiniuStorageServiceProvider::class,
+        //2017-10-27 添加 HTMLPurifier for Laravel 5
+        Mews\Purifier\PurifierServiceProvider::class,
     ],
 
     /*
@@ -232,6 +234,8 @@ return [
 
         //2017-10-11 添加验证码 mewebstudio/captcha
         'Captcha' => Mews\Captcha\Facades\Captcha::class,
+        //2017-10-27 添加 HTMLPurifier for Laravel 5
+        'Purifier' => Mews\Purifier\Facades\Purifier::class,
     ],
 
 ];
