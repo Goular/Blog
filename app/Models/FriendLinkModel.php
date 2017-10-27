@@ -13,7 +13,7 @@ class FriendLinkModel extends BaseModel
     public function changeOrder($id, $value)
     {
         $friendLink = FriendLink::find($id);
-        if (!isset($category)) return false;
+        if (!isset($friendLink)) return false;
         $friendLink->order = $value;
         $friendLink->save();
         return true;

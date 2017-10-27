@@ -17,7 +17,7 @@ class FriendLinkController extends CommonController
     public function index()
     {
         //获取所有的分类
-        $friendLinks = FriendLink::orderBy("order", "desc")->paginate(3);
+        $friendLinks = FriendLink::orderBy("order", "desc")->paginate(12);
         return view("backend.friend_link.index", compact('friendLinks'));
     }
 
@@ -83,7 +83,7 @@ class FriendLinkController extends CommonController
         $model = FriendLink::find($id);
         if ($model) {
             if ($model->update(request()->all())) {
-                return redirect("admin/category");
+                return redirect("admin/friend_links");
             } else {
                 return back()->withInput()->withErrors("修改失败");
             }

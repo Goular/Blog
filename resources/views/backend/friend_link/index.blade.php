@@ -43,32 +43,16 @@
                         </tfoot>
                     </table>
                     {{--分页--}}
-                    {{--<div class="row">--}}
-                    {{--<div class="col-md-4">--}}
-                    {{--<div class="dataTables_info" id="" role="status" aria-live="polite">共 2570 条记录</div>--}}
-                    {{--</div>--}}
-                    {{--<div class="col-md-8">--}}
-                    {{--<div class="dataTables_paginate paging_simple_numbers pull-right">--}}
-                    {{--<ul class="pagination">--}}
-                    {{--<li class="paginate_button previous disabled">--}}
-                    {{--<a href="#" aria-label="上一页">--}}
-                    {{--<span aria-hidden="true">&laquo;</span>--}}
-                    {{--</a>--}}
-                    {{--</li>--}}
-                    {{--<li class="paginate_button active"><a href="#">1</a></li>--}}
-                    {{--<li class="paginate_button"><a href="#">2</a></li>--}}
-                    {{--<li class="paginate_button"><a href="#">3</a></li>--}}
-                    {{--<li class="paginate_button"><a href="#">4</a></li>--}}
-                    {{--<li class="paginate_button"><a href="#">5</a></li>--}}
-                    {{--<li class="paginate_button next">--}}
-                    {{--<a href="#" aria-label="下一页">--}}
-                    {{--<span aria-hidden="true">&raquo;</span>--}}
-                    {{--</a>--}}
-                    {{--</li>--}}
-                    {{--</ul>--}}
-                    {{--</div>--}}
-                    {{--</div>--}}
-                    {{--</div>--}}
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="dataTables_info" id="" role="status" aria-live="polite">共 {{$friendLinks->total()}} 条记录</div>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="pull-right">
+                                {{$friendLinks->links()}}
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <!-- /.box-body -->
             </div>
@@ -114,7 +98,7 @@
                                 layer.alert(data.message, {icon: 5});
                                 parent.text(oldhtml)
                             }
-                            //window.location.href = "admin/category";
+                            window.location.href = '{{url("admin/friend_links")}}';
                         },
                         complete: function (XMLHttpRequest, textStatus) {
                             //HideLoading();
