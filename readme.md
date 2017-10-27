@@ -229,3 +229,23 @@
         Purifier::clean('This is my H1 title', 'titles');
         Purifier::clean('This is my H1 title', array('Attr.EnableID' => true));
 <pre>
+
+### Mock数据
+<pre>
+    使用seeder和factory()方法来产生模拟数据
+    
+    factory方法使用
+    1.
+        $factory->define(App\Entities\FriendLink::class,function (Faker $faker){
+            return [
+                'name' => $faker->name,
+                'title' => $faker->title,
+                'url' => $faker->url,
+                'order' => $faker->numberBetween(0,1000),
+            ];
+        });
+    2.
+        php artisan tinker;
+        factory(App\Entities\FriendLink::class, 10)->create();
+        回车创建内容
+</pre>
