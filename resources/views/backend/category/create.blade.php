@@ -12,7 +12,7 @@
                 </div>
                 <!-- /.box-header -->
                 <!-- form start -->
-                <form action="{{url('admin/category')}}" class="form-horizontal" method="post">
+                <form action="{{url('admin/categories')}}" class="form-horizontal" method="post">
                     {{csrf_field()}}
                     <div class="box-body">
                         <div class="form-group">

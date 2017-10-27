@@ -22,8 +22,8 @@ class CreateArticlesTable extends Migration
             $table->string("thumb")->nullable()->comment("文章缩略图");
             $table->text("content")->nullable()->comment("文章正文");
             $table->string("editor")->nullable()->comment("作者");
-            $table->string("view")->nullable()->comment("查看次数");
-            $table->string("cate_id")->nullable()->comment("标题");
+            $table->integer("view")->nullable()->default(0)->comment("查看次数");
+            $table->integer("cate_id")->nullable()->default(0)->comment("标题");
             $table->timestamps();
             $table->softDeletes();
         });

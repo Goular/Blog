@@ -31,7 +31,7 @@
                                 <td class="text-center">{{$category->title}}</td>
                                 <td class="text-center">{{$category->view}}</td>
                                 <td class="text-center">
-                                    <a href="{{url('admin/category/'.$category->id.'/edit')}}"
+                                    <a href="{{url('admin/categories/'.$category->id.'/edit')}}"
                                        class="text-green">修改</a>&nbsp;&nbsp;&nbsp;&nbsp;
                                     <a href="javascript:void(0);" onclick="delCategory(this,'{{$category->name}}',{{$category->id}})"
                                        class="text-green">删除</a>
@@ -98,7 +98,7 @@
                     parent.text(value);
                     $.ajax({
                         type: 'post',
-                        url: '{{url("admin/category/changeorder")}}',
+                        url: '{{url("admin/categories/changeorder")}}',
                         data: {
                             "_token": '{{csrf_token()}}',
                             'id': id,
@@ -155,7 +155,7 @@
                         } else {
                             layer.alert(data.message, {icon: 5});
                         }
-                        window.location.href = '{{url("admin/category")}}';
+                        window.location.href = '{{url("admin/categories")}}';
                     },
                     complete: function (XMLHttpRequest, textStatus) {
                         //HideLoading();

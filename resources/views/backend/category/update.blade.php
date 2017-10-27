@@ -12,7 +12,7 @@
                 </div>
                 <!-- /.box-header -->
                 <!-- form start -->
-                <form action="{{url('admin/category/'.$selectCate->id)}}" class="form-horizontal" method="post">
+                <form action="{{url('admin/categories/'.$selectCate->id)}}" class="form-horizontal" method="post">
                     {{csrf_field()}}
                     {{method_field('put')}}
                     <div class="box-body">

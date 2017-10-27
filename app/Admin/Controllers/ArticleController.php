@@ -12,9 +12,8 @@ class ArticleController extends CommonController
 {
     public function index()
     {
-        return "112233";
-        //$articles = Article::orderBy("updated_at", "desc")->paginate(10);
-        //return view("backend.article.index", compact('articles'));
+        $articles = Article::orderBy("updated_at", "desc")->paginate(1);
+        return view("backend.article.index", compact('articles'));
     }
 
     public function create()
@@ -52,7 +51,7 @@ class ArticleController extends CommonController
 
     public function show($id)
     {
-
+        return "1122330";
     }
 
     public function edit($id)

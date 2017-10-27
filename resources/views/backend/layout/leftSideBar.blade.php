@@ -12,8 +12,8 @@
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li class="active"><a href="{{url("admin/article")}}"><i class="fa fa-paper-plane"></i>文章列表</a></li>
-                    <li><a href="{{url("admin/article/create")}}"><i class="glyphicon glyphicon-plus"></i>文章添加</a></li>
+                    <li class="active"><a href="{{url("admin/articles")}}"><i class="fa fa-paper-plane"></i>文章列表</a></li>
+                    <li><a href="{{url("admin/articles/create")}}"><i class="glyphicon glyphicon-plus"></i>文章添加</a></li>
                 </ul>
             </li>
             <li class="treeview">
@@ -24,8 +24,8 @@
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li class="active"><a href="{{url("admin/category")}}"><i class="glyphicon glyphicon-list"></i>分类列表</a></li>
-                    <li><a href="{{url("admin/category/create")}}"><i class="glyphicon glyphicon-plus"></i>分类添加</a></li>
+                    <li class="active"><a href="{{url("admin/categories")}}"><i class="glyphicon glyphicon-list"></i>分类列表</a></li>
+                    <li><a href="{{url("admin/categories/create")}}"><i class="glyphicon glyphicon-plus"></i>分类添加</a></li>
                 </ul>
             </li>
             <li class="treeview">

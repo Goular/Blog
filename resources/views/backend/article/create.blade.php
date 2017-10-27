@@ -12,7 +12,7 @@
                 </div>
                 <!-- /.box-header -->
                 <!-- form start -->
-                <form action="{{url('admin/article')}}" class="form-horizontal" method="post">
+                <form action="{{url('admin/articles')}}" class="form-horizontal" method="post">
                     {{csrf_field()}}
                     <div class="box-body">
                         @include("backend.layout.errorMsg")
