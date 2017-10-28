@@ -31,7 +31,7 @@
     <link rel="stylesheet" href="{{url('layui/css/layui.css')}}">
     @yield('page-css')
 </head>
-<body class="hold-transition skin-green-light sidebar-mini">
+<body class="hold-transition skin-green sidebar-mini">
 <div class="wrapper">
 
     <!-- 后台管理头部响应式布局 -->

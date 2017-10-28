@@ -7,7 +7,7 @@
         <div class="col-md-12">
             <div class="box box-success">
                 <div class="box-header">
-                    <h3 class="box-title">博客目录</h3>
+                    <h3 class="box-title">博客导航</h3>
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body">
@@ -16,24 +16,23 @@
                         <tr>
                             <th class="text-center">排序</th>
                             <th class="text-center">名称</th>
-                            <th class="text-center">标题</th>
+                            <th class="text-center">别名</th>
                             <th class="text-center">URL地址</th>
                             <th class="text-center">操作</th>
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach ($friendLinks as $link)
+                        @foreach ($navigations as $navagation)
                             <tr>
                                 <td class="text-center"
-                                    ondblclick="ShowElement(this,'{{$link->id}}')">{{$link->order}}</td>
-                                {{--<td class="text-center">{{$link->id}}</td>--}}
-                                <td class="text-center">{{$link->name}}</td>
-                                <td class="text-center text-green">{{$link->title}}</td>
-                                <td class="text-center">{{$link->url}}</td>
+                                    ondblclick="ShowElement(this,'{{$navagation->id}}')">{{$navagation->order}}</td>
+                                <td class="text-center">{{$navagation->name}}</td>
+                                <td class="text-center text-green">{{$navagation->alias}}</td>
+                                <td class="text-center">{{$navagation->url}}</td>
                                 <td class="text-center">
-                                    <a href="{{url('admin/friend_links/'.$link->id.'/edit')}}"
+                                    <a href="{{url('admin/navigations/'.$navagation->id.'/edit')}}"
                                        class="text-green">修改</a>&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <a href="javascript:void(0);" onclick="delCategory(this,'{{$link->name}}',{{$link->id}})"
+                                    <a href="javascript:void(0);" onclick="delCategory(this,'{{$navagation->name}}',{{$navagation->id}})"
                                        class="text-green">删除</a>
                                 </td>
                             </tr>
@@ -45,11 +44,11 @@
                     {{--分页--}}
                     <div class="row">
                         <div class="col-md-4">
-                            <div class="dataTables_info" id="" role="status" aria-live="polite">共 {{$friendLinks->total()}} 条记录</div>
+                            <div class="dataTables_info" id="" role="status" aria-live="polite">共 {{$navigations->total()}} 条记录</div>
                         </div>
                         <div class="col-md-8">
                             <div class="pull-right">
-                                {{$friendLinks->links()}}
+                                {{$navigations->links()}}
                             </div>
                         </div>
                     </div>
@@ -82,7 +81,7 @@
                     parent.text(value);
                     $.ajax({
                         type: 'post',
-                        url: '{{url("admin/friend_links/changeorder")}}',
+                        url: '{{url("admin/navigations/changeorder")}}',
                         data: {
                             "_token": '{{csrf_token()}}',
                             'id': id,
@@ -98,7 +97,7 @@
                                 layer.alert(data.message, {icon: 5});
                                 parent.text(oldhtml)
                             }
-                            {{--window.location.href = '{{url("admin/friend_links")}}';--}}
+                            {{--window.location.href = '{{url("admin/navigations")}}';--}}
                         },
                         complete: function (XMLHttpRequest, textStatus) {
                             //HideLoading();
@@ -125,7 +124,7 @@
             }, function () {
                 $.ajax({
                     type: 'post',
-                    url: '{{url("admin/friend_links/")}}/' + id,
+                    url: '{{url("admin/navigations/")}}/' + id,
                     data: {
                         "_token": '{{csrf_token()}}',
                         '_method': 'delete',
@@ -139,7 +138,7 @@
                         } else {
                             layer.alert(data.message, {icon: 5});
                         }
-                        window.location.href = '{{url("admin/friend_links")}}';
+                        window.location.href = '{{url("admin/navigations")}}';
                     },
                     complete: function (XMLHttpRequest, textStatus) {
                         //HideLoading();

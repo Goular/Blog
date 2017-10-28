@@ -15,5 +15,7 @@ Route::prefix('admin')->group(function () {
         Route::any('upload_article_content', '\App\Admin\Controllers\ArticleController@upload_content');
         Route::resource('friend_links', '\App\Admin\Controllers\FriendLinkController');
         Route::post('friend_links/changeorder', '\App\Admin\Controllers\FriendLinkController@changeOrder');
+        Route::resource('navigations', '\App\Admin\Controllers\NavigationController');
+        Route::post('navigations/changeorder', '\App\Admin\Controllers\NavigationController@changeOrder');
     });
 });

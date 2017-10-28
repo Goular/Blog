@@ -32,3 +32,12 @@ $factory->define(App\Entities\FriendLink::class,function (Faker $faker){
         'order' => $faker->numberBetween(0,1000),
     ];
 });
+
+$factory->define(App\Entities\Navigation::class,function (Faker $faker){
+    return [
+        'name' => $faker->name,
+        'alias' => $faker->title,
+        'url' => $faker->url,
+        'order' => $faker->numberBetween(0,1000),
+    ];
+});

@@ -28,8 +28,6 @@
                     <li><a href="{{url("admin/categories/create")}}"><i class="glyphicon glyphicon-plus"></i>分类添加</a></li>
                 </ul>
             </li>
-
-
             <li class="treeview">
                 <a href="#">
                     <i class="fa fa-link"></i><span>友情链接</span>
@@ -42,7 +40,18 @@
                     <li><a href="{{url("admin/friend_links/create")}}"><i class="glyphicon glyphicon-plus"></i>链接添加</a></li>
                 </ul>
             </li>
-
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-link"></i><span>网站导航</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li class="active"><a href="{{url("admin/navigations")}}"><i class="glyphicon glyphicon-list"></i>导航列表</a></li>
+                    <li><a href="{{url("admin/navigations/create")}}"><i class="glyphicon glyphicon-plus"></i>导航添加</a></li>
+                </ul>
+            </li>
             <li class="treeview">
                 <a href="#">
                     <i class="fa fa-user"></i><span>用户管理</span>
