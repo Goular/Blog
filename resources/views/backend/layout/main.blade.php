@@ -80,8 +80,6 @@
 {{--<script src="{{asset('adminlte/js/pages/dashboard.js')}}"></script>--}}
 <!-- AdminLTE for demo purposes -->
 <script src="{{asset('adminlte/js/demo.js')}}"></script>
-{{--自定义js文件--}}
-<script src="{{asset('js/goular.js')}}"></script>
 {{--弹出层 layer框架--}}
 <script src="{{asset('layui/layui.all.js')}}"></script>
 @yield('page-js')
