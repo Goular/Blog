@@ -168,7 +168,7 @@ class WebConfigController extends CommonController
             WebConfig::where('id', $v)->update(['value' => $values[$k]]);
         }
         $this->saveConfigFile();
-        return back()->with('errors', '配置项更新成功！');
+        return back()->withErrors("配置项更新成功");
     }
 
     /**
