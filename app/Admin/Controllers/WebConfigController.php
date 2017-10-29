@@ -12,7 +12,7 @@ class WebConfigController extends CommonController
     public function index()
     {
         //获取所有的配置
-        $webConfigs = WebConfig::orderBy("order", "desc")->paginate(1);
+        $webConfigs = WebConfig::orderBy("order", "asc")->paginate(12);
         return view("backend.web_config.index", compact('webConfigs'));
     }
 

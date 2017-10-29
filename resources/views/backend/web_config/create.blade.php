@@ -39,7 +39,7 @@
                         <div class="form-group value">
                             <label for="type_value" class="col-sm-2 control-label">配置类型值</label>
                             <div class="col-sm-10">
-                                <input name="type_value" type="number" class="form-control" id="value" placeholder="格式: 1|开启,0|关闭" value="{{old('type_value')??''}}">
+                                <input name="type_value" type="text" class="form-control" id="value" placeholder="格式: 1|开启,0|关闭" value="{{old('type_value')??''}}">
                             </div>
                         </div>
                         <div class="form-group">
