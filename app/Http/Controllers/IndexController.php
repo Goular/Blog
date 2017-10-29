@@ -13,7 +13,7 @@ class IndexController extends CommonController
 {
     public function index()
     {
-        return "667788";
+        return view("frontend.index.index");
     }
 
     public function create()
