@@ -10,49 +10,63 @@
                     <h3 class="box-title">博客目录</h3>
                 </div>
                 <!-- /.box-header -->
-                <div class="box-body">
-                    <table id="example2" class="table table-bordered table-hover">
-                        <thead>
-                        <tr>
-                            <th class="text-center">排序</th>
-                            <th class="text-center">标题</th>
-                            <th class="text-center">变量名</th>
-                            <th class="text-center">配置值</th>
-                            <th class="text-center">操作</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        @foreach ($webConfigs as $config)
+                <form action="{{url('admin/web_configs/changecontent')}}" method="post">
+                    <div class="box-body">
+                        {{csrf_field()}}
+                        <table id="example2" class="table table-bordered table-hover">
+                            <thead>
                             <tr>
-                                <td class="text-center"
-                                    ondblclick="ShowElement(this,'{{$config->id}}')">{{$config->order}}</td>
-                                <td class="text-center">{{$config->title}}</td>
-                                <td class="text-center text-green">{{$config->name}}</td>
-                                <td class="text-center">{!! $config->_html !!}</td>
-                                <td class="text-center">
-                                    <a href="{{url('admin/web_configs/'.$config->id.'/edit')}}"
-                                       class="text-green">修改</a>&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <a href="javascript:void(0);" onclick="delCategory(this,'{{$config->name}}',{{$config->id}})"
-                                       class="text-green">删除</a>
-                                </td>
+                                <th class="text-center">排序</th>
+                                <th class="text-center">标题</th>
+                                <th class="text-center">变量名</th>
+                                <th class="text-center">配置值</th>
+                                <th class="text-center">操作</th>
                             </tr>
-                        @endforeach
-                        </tbody>
-                        <tfoot>
-                        </tfoot>
-                    </table>
-                    {{--分页--}}
-                    <div class="row">
-                        <div class="col-md-4">
-                            <div class="dataTables_info" id="" role="status" aria-live="polite">共 {{$webConfigs->total()}} 条记录</div>
+                            </thead>
+                            <tbody>
+                            @foreach ($webConfigs as $config)
+                                <tr>
+                                    <td class="text-center"
+                                        ondblclick="ShowElement(this,'{{$config->id}}')">{{$config->order}}</td>
+                                    <td class="text-center">{{$config->title}}</td>
+                                    <td class="text-center text-green">{{$config->name}}</td>
+                                    <td class="text-center">
+                                        <input type="hidden" name="ids[]" value="{{$config->id}}"/>
+                                        {!! $config->_html !!}
+                                    </td>
+                                    <td class="text-center">
+                                        <a href="{{url('admin/web_configs/'.$config->id.'/edit')}}"
+                                           class="text-green">修改</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <a href="javascript:void(0);"
+                                           onclick="delCategory(this,'{{$config->name}}',{{$config->id}})"
+                                           class="text-green">删除</a>
+                                    </td>
+                                </tr>
+                            @endforeach
+                            </tbody>
+                            <tfoot>
+                            </tfoot>
+                        </table>
+                        <div class="">
+                            <button type="submit" class="btn btn-success center-block">提交配置</button>
+                            {{--<button type="submit" class="btn btn-default pull-right">重置</button>--}}
                         </div>
-                        <div class="col-md-8">
-                            <div class="pull-right">
-                                {{$webConfigs->links()}}
-                            </div>
-                        </div>
+                        {{--分页--}}
+                        {{--<div class="row">--}}
+                        {{--<div class="col-md-4">--}}
+                        {{--<div class="dataTables_info" id="" role="status" aria-live="polite">--}}
+                        {{--共 {{$webConfigs->total()}}--}}
+                        {{--条记录--}}
+                        {{--</div>--}}
+                        {{--</div>--}}
+                        {{--<div class="col-md-8">--}}
+                        {{--<div class="pull-right">--}}
+                        {{--{{$webConfigs->links()}}--}}
+                        {{--</div>--}}
+                        {{--</div>--}}
+                        {{--</div>--}}
                     </div>
-                </div>
+                </form>
                 <!-- /.box-body -->
             </div>
             <!-- /.box -->

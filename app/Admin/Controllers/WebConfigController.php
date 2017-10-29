@@ -12,25 +12,26 @@ class WebConfigController extends CommonController
     public function index()
     {
         //获取所有的配置
-        $webConfigs = WebConfig::orderBy("order", "asc")->paginate(12);
+//        $webConfigs = WebConfig::orderBy("order", "asc")->paginate(12);
+        $webConfigs = WebConfig::orderBy("order", "asc")->get();
 
-        foreach ($webConfigs as $k=>$v){
-            switch ($v->type_name){
+        foreach ($webConfigs as $k => $v) {
+            switch ($v->type_name) {
                 case 'input':
-                    $webConfigs[$k]->_html = '<input type="text" class="lg" name="value[]" style="width:100%" value="'.$v->value.'">';
+                    $webConfigs[$k]->_html = '<input type="text" class="lg" name="value[]" style="width:100%" value="' . $v->value . '">';
                     break;
                 case 'textarea':
-                    $webConfigs[$k]->_html = '<textarea type="text" class="lg" name="value[]" style="width:100%" rows="8">'.$v->value.'</textarea>';
+                    $webConfigs[$k]->_html = '<textarea type="text" class="lg" name="value[]" style="width:100%" rows="8">' . $v->value . '</textarea>';
                     break;
                 case 'radio':
                     //1|开启,0|关闭
-                    $arr = explode(',',$v->type_value);
+                    $arr = explode(',', $v->type_value);
                     $str = '';
-                    foreach($arr as $m=>$n){
+                    foreach ($arr as $m => $n) {
                         //1|开启
-                        $r = explode('|',$n);
-                        $c = $v->value==$r[0]?' checked ':'';
-                        $str .= '<input type="radio" name="value[]" value="'.$r[0].'"'.$c.'>'.$r[1].'　';
+                        $r = explode('|', $n);
+                        $c = $v->value == $r[0] ? ' checked ' : '';
+                        $str .= '<input type="radio" name="value[]" value="' . $r[0] . '"' . $c . '>' . $r[1] . '　';
                     }
                     $webConfigs[$k]->_html = $str;
                     break;
@@ -150,5 +151,34 @@ class WebConfigController extends CommonController
             //更新失败
             return $this->ajaxFailOperate();
         }
+    }
+
+    /**
+     * 更改配置内容的选项
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function changeContent()
+    {
+        $datas = request()->all();
+        $ids = $datas['ids'];
+        $values = $datas['value'];
+
+
+        foreach ($ids as $k => $v) {
+            WebConfig::where('id', $v)->update(['value' => $values[$k]]);
+        }
+        $this->saveConfigFile();
+        return back()->with('errors', '配置项更新成功！');
+    }
+
+    /**
+     * 生成配置文件
+     */
+    public function saveConfigFile()
+    {
+        $config = WebConfig::pluck('value','name')->all();
+        $path = base_path().'\config\webite.php';
+        $str = '<?php return '.var_export($config,true).';';
+        file_put_contents($path,$str);
     }
 }
