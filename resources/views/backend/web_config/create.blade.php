@@ -16,30 +16,50 @@
                     {{csrf_field()}}
                     <div class="box-body">
                         <div class="form-group">
-                            <label for="name" class="col-sm-2 control-label">链接名称<label
+                            <label for="title" class="col-sm-2 control-label">标题<label
                                         class="text-red">(必填)</label></label>
                             <div class="col-sm-10">
-                                <input name="name" type="text" class="form-control" id="name" placeholder="请输入链接名称" value="{{old('name')}}">
+                                <input name="title" type="text" class="form-control" id="title" placeholder="请输入标题" value="{{old('title')}}">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="title" class="col-sm-2 control-label">链接标题<label
+                            <label for="name" class="col-sm-2 control-label">名称<label
                                         class="text-red">(必填)</label></label>
                             <div class="col-sm-10">
-                                <input name="title" type="text" class="form-control" id="title" placeholder="请输入链接标题" value="{{old('title')}}">
+                                <input name="name" type="text" class="form-control" id="name" placeholder="请输入变量名" value="{{old('name')}}">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="keywords" class="col-sm-2 control-label">URL<label
+                            <label for="keywords" class="col-sm-2 control-label">类型<label
                                         class="text-red">(必填)</label></label>
                             <div class="col-sm-10">
-                                <input name="url" type="text" class="form-control" id="title" placeholder="请输入URL" value="{{old('url')}}">
+                                <label class="radio-inline">
+                                    <input type="radio" name="type" id="inlineRadio1" value="input" checked onclick="showTr()"> input
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="type" id="inlineRadio2" value="textarea" onclick="showTr()"> textarea
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="type" id="inlineRadio3" value="radio" onclick="showTr()"> radio
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group value">
+                            <label for="value" class="col-sm-2 control-label">类型值</label>
+                            <div class="col-sm-10">
+                                <input name="value" type="number" class="form-control" id="value" placeholder="请输入类型值" value="{{old('value')}}">
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="order" class="col-sm-2 control-label">排序</label>
                             <div class="col-sm-10">
                                 <input name="order" type="number" class="form-control" id="order" placeholder="请输入排序" value="{{old('order')}}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="content" class="col-sm-2 control-label">描述</label>
+                            <div class="col-sm-10">
+                                <textarea name="content" class="form-control" id="description" rows="3" placeholder="请输入说明">{{old('content')}}</textarea>
                             </div>
                         </div>
                         @include("backend.layout.errorMsg")
@@ -58,7 +78,17 @@
 @endsection
 
 @section('page-js')
-
+    <script>
+        showTr();
+        function showTr() {
+            var type = $('input[name=type]:checked').val();
+            if(type=='radio'){
+                $('.value').show();
+            }else{
+                $('.value').hide();
+            }
+        }
+    </script>
 @endsection
 
 @section('page-css')

@@ -11,12 +11,12 @@ class WebConfigController extends CommonController
     {
         //获取所有的分类
         $friendLinks = FriendLink::orderBy("order", "desc")->paginate(12);
-        return view("backend.friend_link.index", compact('friendLinks'));
+        return view("backend.web_config.index", compact('friendLinks'));
     }
 
     public function create()
     {
-        return view("backend.friend_link.create");
+        return view("backend.web_config.create");
     }
 
     public function store(Request $request)
@@ -38,7 +38,7 @@ class WebConfigController extends CommonController
         //逻辑 && 渲染
         $entity = new FriendLink();
         if ($entity->create(request()->all())) {
-            return redirect("admin/friend_links");
+            return redirect("admin/web_configs");
         } else {
             return back()->withInput()->withErrors("添加失败");
         }
@@ -53,7 +53,7 @@ class WebConfigController extends CommonController
     {
         try {
             $selectLink = FriendLink::findOrFail($id);
-            return view("backend.friend_link.update", compact('selectLink'));
+            return view("backend.web_config.update", compact('selectLink'));
         } catch (ModelNotFoundException $e) {
             return back();
         }
@@ -76,7 +76,7 @@ class WebConfigController extends CommonController
         $model = FriendLink::find($id);
         if ($model) {
             if ($model->update(request()->all())) {
-                return redirect("admin/friend_links");
+                return redirect("admin/web_configs");
             } else {
                 return back()->withInput()->withErrors("修改失败");
             }
