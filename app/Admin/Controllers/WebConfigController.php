@@ -162,8 +162,6 @@ class WebConfigController extends CommonController
         $datas = request()->all();
         $ids = $datas['ids'];
         $values = $datas['value'];
-
-
         foreach ($ids as $k => $v) {
             WebConfig::where('id', $v)->update(['value' => $values[$k]]);
         }
