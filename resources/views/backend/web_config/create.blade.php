@@ -23,23 +23,23 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="type" class="col-sm-2 control-label">配置类型</label>
+                            <label for="type_name" class="col-sm-2 control-label">配置类型</label>
                             <div class="col-sm-10">
                                 <label class="radio-inline">
-                                    <input type="radio" name="type" id="inlineRadio1" value="input" checked onclick="showTr()"> input
+                                    <input type="radio" name="type_name" id="inlineRadio1" value="input" checked onclick="showTr()"> input
                                 </label>
                                 <label class="radio-inline">
-                                    <input type="radio" name="type" id="inlineRadio2" value="textarea" onclick="showTr()"> textarea
+                                    <input type="radio" name="type_name" id="inlineRadio2" value="textarea" onclick="showTr()"> textarea
                                 </label>
                                 <label class="radio-inline">
-                                    <input type="radio" name="type" id="inlineRadio3" value="radio" onclick="showTr()"> radio
+                                    <input type="radio" name="type_name" id="inlineRadio3" value="radio" onclick="showTr()"> radio
                                 </label>
                             </div>
                         </div>
                         <div class="form-group value">
-                            <label for="value" class="col-sm-2 control-label">配置类型值</label>
+                            <label for="type_value" class="col-sm-2 control-label">配置类型值</label>
                             <div class="col-sm-10">
-                                <input name="value" type="number" class="form-control" id="value" placeholder="格式: 1|开启,0|关闭" value="{{old('value')??''}}">
+                                <input name="type_value" type="number" class="form-control" id="value" placeholder="格式: 1|开启,0|关闭" value="{{old('type_value')??''}}">
                             </div>
                         </div>
                         <div class="form-group">
@@ -50,15 +50,21 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="tips" class="col-sm-2 control-label">配置值</label>
+                            <label for="value" class="col-sm-2 control-label">配置值</label>
                             <div class="col-sm-10">
-                                <textarea name="tips" class="form-control" id="description" rows="3" placeholder="请输入配置值">{{old('tips')}}</textarea>
+                                <textarea name="value" class="form-control" id="description" rows="3" placeholder="请输入配置值">{{old('value')}}</textarea>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="order" class="col-sm-2 control-label">排序</label>
                             <div class="col-sm-10">
                                 <input name="order" type="number" class="form-control" id="order" placeholder="请输入排序" value="{{old('order')}}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="description" class="col-sm-2 control-label">配置描述</label>
+                            <div class="col-sm-10">
+                                <textarea name="description" class="form-control" id="description" rows="3" placeholder="请输入配置描述">{{old('description')}}</textarea>
                             </div>
                         </div>
                         @include("backend.layout.errorMsg")
@@ -80,7 +86,7 @@
     <script>
         showTr();
         function showTr() {
-            var type = $('input[name=type]:checked').val();
+            var type = $('input[name=type_name]:checked').val();
             if(type=='radio'){
                 $('.value').show();
             }else{
