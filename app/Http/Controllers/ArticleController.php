@@ -5,15 +5,16 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 /**
- * 前台首页
+ * 前台文章控制器
  * Class IndexController
  * @package App\Http\Controllers
  */
-class IndexController extends CommonController
+class ArticleController extends CommonController
 {
     public function index()
     {
-        return "667788";
+        return "112233";
+        //return view("");
     }
 
     public function create()

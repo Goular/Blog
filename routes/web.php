@@ -17,6 +17,9 @@ include_once("admin.php");
 //前台路由配置规则
 Route::prefix('')->group(function () {
     Route::get('/', 'IndexController@index');
+    Route::resource('/indexs', 'IndexController');
+    Route::resource('/categories', 'CategoryController');
+    Route::resource('/articles', 'ArticleController');
 });
 
 //验证模块
