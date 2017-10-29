@@ -9,7 +9,7 @@
                 <div class="box-header">
                     <h3 class="box-title">博客目录</h3>
                 </div>
-                @include("backend.layout.errorMsg")
+                @include("backend.layout.warningMsg")
                 <!-- /.box-header -->
                 <form action="{{url('admin/web_configs/changecontent')}}" method="post">
                     <div class="box-body">
