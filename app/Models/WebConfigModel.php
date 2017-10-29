@@ -3,6 +3,7 @@ namespace App\Models;
 
 use App\Entities\FriendLink;
 use App\Entities\Navigation;
+use App\Entities\WebConfig;
 
 /**
  * 网站配置类的内容
@@ -18,7 +19,7 @@ class WebConfigModel extends BaseModel
      */
     public function changeOrder($id, $value)
     {
-        $navigation = Navigation::find($id);
+        $navigation = WebConfig::find($id);
         if (!isset($navigation)) return false;
         $navigation->order = $value;
         $navigation->save();

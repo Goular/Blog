@@ -12,35 +12,54 @@
                 </div>
                 <!-- /.box-header -->
                 <!-- form start -->
-                <form action="{{url('admin/friend_links/'.$selectLink->id)}}" class="form-horizontal" method="post">
+                <form action="{{url('admin/web_configs/'.$selectConfig->id)}}" class="form-horizontal" method="post">
                     {{csrf_field()}}
                     {{method_field("put")}}
                     <div class="box-body">
                         <div class="form-group">
-                            <label for="name" class="col-sm-2 control-label">链接名称<label
+                            <label for="title" class="col-sm-2 control-label">标题<label
                                         class="text-red">(必填)</label></label>
                             <div class="col-sm-10">
-                                <input name="name" type="text" class="form-control" id="name" placeholder="请输入链接名称" value="{{$selectLink->name}}">
+                                <input name="title" type="text" class="form-control" id="title" placeholder="请输入标题" value="{{$selectConfig->title}}">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="title" class="col-sm-2 control-label">链接标题<label
+                            <label for="name" class="col-sm-2 control-label">名称<label
                                         class="text-red">(必填)</label></label>
                             <div class="col-sm-10">
-                                <input name="title" type="text" class="form-control" id="title" placeholder="请输入链接标题" value="{{$selectLink->title}}">
+                                <input name="name" type="text" class="form-control" id="name" placeholder="请输入变量名" value="{{$selectConfig->name}}">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="keywords" class="col-sm-2 control-label">URL<label
-                                        class="text-red">(必填)</label></label>
+                            <label for="type" class="col-sm-2 control-label">类型</label>
                             <div class="col-sm-10">
-                                <input name="url" type="text" class="form-control" id="title" placeholder="请输入URL" value="{{$selectLink->url}}">
+                                <label class="radio-inline">
+                                    <input type="radio" name="type" id="inlineRadio1" value="input" @if($selectConfig->type == 'input') checked @endif onclick="showTr()"> input
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="type" id="inlineRadio2" value="textarea" @if($selectConfig->type == 'textarea') checked @endif onclick="showTr()"> textarea
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="type" id="inlineRadio3" value="radio" @if($selectConfig->type == 'radio') checked @endif onclick="showTr()"> radio
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group value">
+                            <label for="value" class="col-sm-2 control-label">类型值</label>
+                            <div class="col-sm-10">
+                                <input name="value" type="number" class="form-control" id="value" placeholder="请输入类型值" value="{{$selectConfig->value}}">
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="order" class="col-sm-2 control-label">排序</label>
                             <div class="col-sm-10">
-                                <input name="order" type="number" class="form-control" id="order" placeholder="请输入排序" value="{{$selectLink->order}}">
+                                <input name="order" type="number" class="form-control" id="order" placeholder="请输入排序" value="{{$selectConfig->order}}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="tips" class="col-sm-2 control-label">描述</label>
+                            <div class="col-sm-10">
+                                <textarea name="tips" class="form-control" id="description" rows="3" placeholder="请输入说明">{{$selectConfig->tips}}</textarea>
                             </div>
                         </div>
                         @include("backend.layout.errorMsg")
@@ -59,7 +78,17 @@
 @endsection
 
 @section('page-js')
-
+    <script>
+        showTr();
+        function showTr() {
+            var type = $('input[name=type]:checked').val();
+            if(type=='radio'){
+                $('.value').show();
+            }else{
+                $('.value').hide();
+            }
+        }
+    </script>
 @endsection
 
 @section('page-css')

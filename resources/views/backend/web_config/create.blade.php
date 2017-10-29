@@ -46,7 +46,7 @@
                         <div class="form-group value">
                             <label for="value" class="col-sm-2 control-label">类型值</label>
                             <div class="col-sm-10">
-                                <input name="value" type="number" class="form-control" id="value" placeholder="请输入类型值" value="{{old('value')??''}}">
+                                <input name="value" type="number" class="form-control" id="value" placeholder="请输入选项值，用逗号 ',' 进行分隔." value="{{old('value')??''}}">
                             </div>
                         </div>
                         <div class="form-group">
