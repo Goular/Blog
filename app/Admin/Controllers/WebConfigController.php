@@ -6,6 +6,7 @@ use App\Entities\WebConfig;
 use App\Models\WebConfigModel;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Config;
 
 class WebConfigController extends CommonController
 {
@@ -171,11 +172,12 @@ class WebConfigController extends CommonController
 
     /**
      * 生成配置文件
+     * 获取website的配置项目的内容:Config::get('website.web_count')
      */
     public function saveConfigFile()
     {
         $config = WebConfig::pluck('value','name')->all();
-        $path = base_path().'\config\webite.php';
+        $path = base_path().'\config\website.php';
         $str = '<?php return '.var_export($config,true).';';
         file_put_contents($path,$str);
     }
