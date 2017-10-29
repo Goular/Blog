@@ -4,6 +4,7 @@ namespace App\Admin\Controllers;
 
 use App\Entities\Navigation;
 use App\Models\NavigationModel;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 
 /**

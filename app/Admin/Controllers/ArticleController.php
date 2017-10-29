@@ -6,6 +6,7 @@ use App\Entities\Article;
 use App\Models\CategoryModel;
 use App\Tools\Radom\RandomKey;
 use App\Tools\Storage\FileUpload;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 
 class ArticleController extends CommonController

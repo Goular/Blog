@@ -3,15 +3,17 @@
 namespace App\Admin\Controllers;
 
 use App\Entities\WebConfig;
+use App\Models\WebConfigModel;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 
 class WebConfigController extends CommonController
 {
     public function index()
     {
-        //获取所有的分类
-        $friendLinks = FriendLink::orderBy("order", "desc")->paginate(12);
-        return view("backend.web_config.index", compact('friendLinks'));
+        //获取所有的配置
+        $webConfigs = WebConfig::orderBy("order", "desc")->paginate(1);
+        return view("backend.web_config.index", compact('webConfigs'));
     }
 
     public function create()
@@ -23,20 +25,21 @@ class WebConfigController extends CommonController
     {
         //校验
         $this->validate($request, [
-            "name" => "required|unique:categories,name",
             "title" => "required",
-            "url" => "required",
+            "name" => "required",
+            "content" => "nullable",
             "order" => "nullable|numeric",
+            "tips" => "nullable",
+            "type" => "nullable",
+            "value" => "nullable",
         ], [
-            'name.required' => '名称不能为空',
-            'name.unique' => '名称已存在',
-            'url.required' => '网址不能为空',
             'title.required' => '标题不能为空',
+            'name.required' => '变量名不能为空',
             'order.numeric' => '排序必须是数字',
         ]);
 
         //逻辑 && 渲染
-        $entity = new FriendLink();
+        $entity = new WebConfig();
         if ($entity->create(request()->all())) {
             return redirect("admin/web_configs");
         } else {
@@ -52,7 +55,7 @@ class WebConfigController extends CommonController
     public function edit($id)
     {
         try {
-            $selectLink = FriendLink::findOrFail($id);
+            $selectConfig = WebConfig::findOrFail($id);
             return view("backend.web_config.update", compact('selectLink'));
         } catch (ModelNotFoundException $e) {
             return back();
@@ -62,18 +65,19 @@ class WebConfigController extends CommonController
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-            "name" => "required|unique:categories,name",
             "title" => "required",
-            "url" => "required",
+            "name" => "required",
+            "content" => "nullable",
             "order" => "nullable|numeric",
+            "tips" => "nullable",
+            "type" => "nullable",
+            "value" => "nullable",
         ], [
-            'name.required' => '名称不能为空',
-            'name.unique' => '名称已存在',
-            'url.required' => '网址不能为空',
             'title.required' => '标题不能为空',
+            'name.required' => '变量名不能为空',
             'order.numeric' => '排序必须是数字',
         ]);
-        $model = FriendLink::find($id);
+        $model = WebConfig::find($id);
         if ($model) {
             if ($model->update(request()->all())) {
                 return redirect("admin/web_configs");
@@ -81,13 +85,13 @@ class WebConfigController extends CommonController
                 return back()->withInput()->withErrors("修改失败");
             }
         } else {
-            return back()->withInput()->withErrors("修改的分类找不到");
+            return back()->withInput()->withErrors("修改的配置找不到");
         }
     }
 
     public function destroy($id)
     {
-        $model = FriendLink::find($id);
+        $model = WebConfig::find($id);
         if ($model->delete()) {
             return $this->ajaxSuccessOperate('删除成功');
         } else {
@@ -96,7 +100,7 @@ class WebConfigController extends CommonController
     }
 
     /**
-     * 变更分类的排序级别
+     * 变更配置的排序级别
      */
     public function changeOrder()
     {
@@ -115,7 +119,7 @@ class WebConfigController extends CommonController
         //进行逻辑操作
         $id = request('id');
         $value = request('value');
-        $model = new FriendLinkModel();
+        $model = new WebConfigModel();
         if ($model->changeOrder($id, $value)) {
             //更新成功
             return $this->ajaxSuccessOperate();

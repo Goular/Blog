@@ -5,6 +5,7 @@ namespace App\Admin\Controllers;
 use App\Entities\FriendLink;
 use App\Models\CategoryModel;
 use App\Models\FriendLinkModel;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 
 /**

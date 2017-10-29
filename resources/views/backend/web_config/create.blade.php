@@ -30,8 +30,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="keywords" class="col-sm-2 control-label">类型<label
-                                        class="text-red">(必填)</label></label>
+                            <label for="type" class="col-sm-2 control-label">类型</label>
                             <div class="col-sm-10">
                                 <label class="radio-inline">
                                     <input type="radio" name="type" id="inlineRadio1" value="input" checked onclick="showTr()"> input
@@ -57,9 +56,9 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="content" class="col-sm-2 control-label">描述</label>
+                            <label for="tips" class="col-sm-2 control-label">描述</label>
                             <div class="col-sm-10">
-                                <textarea name="content" class="form-control" id="description" rows="3" placeholder="请输入说明">{{old('content')}}</textarea>
+                                <textarea name="tips" class="form-control" id="description" rows="3" placeholder="请输入说明">{{old('tips')}}</textarea>
                             </div>
                         </div>
                         @include("backend.layout.errorMsg")
