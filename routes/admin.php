@@ -17,5 +17,7 @@ Route::prefix('admin')->group(function () {
         Route::post('friend_links/changeorder', '\App\Admin\Controllers\FriendLinkController@changeOrder');
         Route::resource('navigations', '\App\Admin\Controllers\NavigationController');
         Route::post('navigations/changeorder', '\App\Admin\Controllers\NavigationController@changeOrder');
+        Route::resource('webconfigs', '\App\Admin\Controllers\WebConfigController');
+        Route::post('webconfigs/changeorder', '\App\Admin\Controllers\WebConfigController@changeOrder');
     });
 });

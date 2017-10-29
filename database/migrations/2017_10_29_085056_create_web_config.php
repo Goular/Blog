@@ -13,7 +13,7 @@ class CreateWebConfig extends Migration
      */
     public function up()
     {
-        Schema::create('web_config', function (Blueprint $table) {
+        Schema::create('web_configs', function (Blueprint $table) {
             $table->increments('id');
             $table->string("title")->default('')->comment("标题");
             $table->string("name")->default('')->comment("变量名");
