@@ -13,6 +13,31 @@ class WebConfigController extends CommonController
     {
         //获取所有的配置
         $webConfigs = WebConfig::orderBy("order", "asc")->paginate(12);
+
+        foreach ($webConfigs as $k=>$v){
+            switch ($v->type_name){
+                case 'input':
+                    $webConfigs[$k]->_html = '<input type="text" class="lg" name="value[]" style="width:100%" value="'.$v->value.'">';
+                    break;
+                case 'textarea':
+                    $webConfigs[$k]->_html = '<textarea type="text" class="lg" name="value[]" style="width:100%" rows="8">'.$v->value.'</textarea>';
+                    break;
+                case 'radio':
+                    //1|开启,0|关闭
+                    $arr = explode(',',$v->type_value);
+                    $str = '';
+                    foreach($arr as $m=>$n){
+                        //1|开启
+                        $r = explode('|',$n);
+                        $c = $v->value==$r[0]?' checked ':'';
+                        $str .= '<input type="radio" name="value[]" value="'.$r[0].'"'.$c.'>'.$r[1].'　';
+                    }
+                    $webConfigs[$k]->_html = $str;
+                    break;
+            }
+
+        }
+
         return view("backend.web_config.index", compact('webConfigs'));
     }
 

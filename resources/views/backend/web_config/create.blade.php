@@ -49,7 +49,7 @@
                                 <input name="name" type="text" class="form-control" id="name" placeholder="请输入配置名称" value="{{old('name')}}">
                             </div>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group value">
                             <label for="value" class="col-sm-2 control-label">配置值</label>
                             <div class="col-sm-10">
                                 <textarea name="value" class="form-control" id="description" rows="3" placeholder="请输入配置值">{{old('value')}}</textarea>

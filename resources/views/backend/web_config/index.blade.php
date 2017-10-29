@@ -17,7 +17,7 @@
                             <th class="text-center">排序</th>
                             <th class="text-center">标题</th>
                             <th class="text-center">变量名</th>
-                            <th class="text-center">配置描述</th>
+                            <th class="text-center">配置值</th>
                             <th class="text-center">操作</th>
                         </tr>
                         </thead>
@@ -28,7 +28,7 @@
                                     ondblclick="ShowElement(this,'{{$config->id}}')">{{$config->order}}</td>
                                 <td class="text-center">{{$config->title}}</td>
                                 <td class="text-center text-green">{{$config->name}}</td>
-                                <td class="text-center">{{$config->description}}</td>
+                                <td class="text-center">{!! $config->_html !!}</td>
                                 <td class="text-center">
                                     <a href="{{url('admin/web_configs/'.$config->id.'/edit')}}"
                                        class="text-green">修改</a>&nbsp;&nbsp;&nbsp;&nbsp;
