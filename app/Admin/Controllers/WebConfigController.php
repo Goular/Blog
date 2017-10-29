@@ -31,7 +31,6 @@ class WebConfigController extends CommonController
             "order" => "nullable|numeric",
             "tips" => "nullable",
             "type" => "nullable",
-            "value" => "nullable",
         ], [
             'title.required' => '标题不能为空',
             'name.required' => '变量名不能为空',
@@ -56,7 +55,7 @@ class WebConfigController extends CommonController
     {
         try {
             $selectConfig = WebConfig::findOrFail($id);
-            return view("backend.web_config.update", compact('selectLink'));
+            return view("backend.web_config.update", compact('selectConfig'));
         } catch (ModelNotFoundException $e) {
             return back();
         }
@@ -71,7 +70,6 @@ class WebConfigController extends CommonController
             "order" => "nullable|numeric",
             "tips" => "nullable",
             "type" => "nullable",
-            "value" => "nullable",
         ], [
             'title.required' => '标题不能为空',
             'name.required' => '变量名不能为空',

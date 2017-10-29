@@ -17,11 +17,11 @@ class CreateWebConfig extends Migration
             $table->increments('id');
             $table->string("title")->default('')->comment("标题");
             $table->string("name")->default('')->comment("变量名");
-            $table->string("content")->default('')->comment("变量值");
+            $table->string("content")->default('')->nullable()->comment("变量值");
             $table->integer("order")->default(0)->comment("排序");
             $table->string("tips")->default('')->comment("描述");
             $table->string("type")->default('')->comment("字段类型");
-            $table->string("value")->default('')->comment("类型值");
+            $table->string("value")->default('')->nullable()->comment("类型值");
             $table->timestamps();
             $table->softDeletes();
         });
