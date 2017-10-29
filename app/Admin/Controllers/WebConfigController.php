@@ -118,6 +118,8 @@ class WebConfigController extends CommonController
     {
         $model = WebConfig::find($id);
         if ($model->delete()) {
+            //删除成功后需要重新生成一次配置文件
+            $this->saveConfigFile();
             return $this->ajaxSuccessOperate('删除成功');
         } else {
             return $this->ajaxFailOperate('删除失败');
