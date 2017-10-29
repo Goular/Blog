@@ -54,6 +54,18 @@
             </li>
             <li class="treeview">
                 <a href="#">
+                    <i class="fa fa-link"></i><span>网站配置</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li class="active"><a href="{{url("admin/web_configs")}}"><i class="glyphicon glyphicon-list"></i>配置列表</a></li>
+                    <li><a href="{{url("admin/web_configs/create")}}"><i class="glyphicon glyphicon-plus"></i>配置添加</a></li>
+                </ul>
+            </li>
+            <li class="treeview">
+                <a href="#">
                     <i class="fa fa-user"></i><span>用户管理</span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
