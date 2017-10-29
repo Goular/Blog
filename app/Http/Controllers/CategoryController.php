@@ -13,7 +13,7 @@ class CategoryController extends CommonController
 {
     public function index()
     {
-        return "334455";
+        return view("frontend.category.index");
     }
 
     public function create()

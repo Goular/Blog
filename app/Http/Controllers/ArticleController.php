@@ -13,8 +13,7 @@ class ArticleController extends CommonController
 {
     public function index()
     {
-        return "112233";
-        //return view("");
+        return view("frontend.article.show");
     }
 
     public function create()

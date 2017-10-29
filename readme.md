@@ -144,6 +144,30 @@
     @endsection
 </pre>
 
+
+### 前台子模板内容
+<pre>
+    @extends("frontend.layout.master")
+    
+    @section("page-header-content")
+        <title>后盾个人博客</title>
+        <meta name="keywords" content="个人博客模板,博客模板" />
+        <meta name="description" content="寻梦主题的个人博客模板，优雅、稳重、大气,低调。" />
+    @endsection
+    
+    @section("page-content")
+        
+    @endsection
+    
+    @section('page-js')
+    
+    @endsection
+    
+    @section('page-css')
+    
+    @endsection
+</pre>
+
 ### old()辅助方法,laravel 提交表单带参数返回,记住上一次输入,return back()->withInput()
 <pre>
     old 函数 获取 session 内一次性的历史输入值： 

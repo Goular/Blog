@@ -5,6 +5,7 @@
     @yield("page-header-content")
     <link href="{{asset('blog/css/base.css')}}" rel="stylesheet">
     <link href="{{asset('blog/css/index.css')}}" rel="stylesheet">
+    <link href="{{asset('blog/css/style.css')}}" rel="stylesheet">
     @yield('page-css')
 </head>
 <body>
