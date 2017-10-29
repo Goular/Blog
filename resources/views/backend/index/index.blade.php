@@ -51,3 +51,15 @@
 
 @endsection
 
+@section('page-nav-content')
+    <h1>
+        博客管理
+        <small>首页</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="glyphicon glyphicon-home"></i>首页</a></li>
+        <li class="">博客管理</li>
+        <li class="active">首页</li>
+    </ol>
+@endsection
+

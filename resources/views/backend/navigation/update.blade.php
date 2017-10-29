@@ -65,3 +65,15 @@
 @section('page-css')
 
 @endsection
+
+@section('page-nav-content')
+    <h1>
+        导航管理
+        <small>导航修改</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="glyphicon glyphicon-home"></i>首页</a></li>
+        <li class="">导航管理</li>
+        <li class="active">导航修改</li>
+    </ol>
+@endsection

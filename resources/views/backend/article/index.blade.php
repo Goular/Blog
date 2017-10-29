@@ -160,3 +160,15 @@
 @section('page-css')
 
 @endsection
+
+@section('page-nav-content')
+    <h1>
+        文章管理
+        <small>文章列表</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="glyphicon glyphicon-home"></i>首页</a></li>
+        <li class="">文章管理</li>
+        <li class="active">文章列表</li>
+    </ol>
+@endsection

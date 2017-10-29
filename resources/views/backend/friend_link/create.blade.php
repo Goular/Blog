@@ -64,3 +64,15 @@
 @section('page-css')
 
 @endsection
+
+@section('page-nav-content')
+    <h1>
+        友情链接管理
+        <small>链接添加</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="glyphicon glyphicon-home"></i>首页</a></li>
+        <li class="">友情链接管理</li>
+        <li class="active">链接添加</li>
+    </ol>
+@endsection

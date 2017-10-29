@@ -80,3 +80,15 @@
 @section('page-css')
 
 @endsection
+
+@section('page-nav-content')
+    <h1>
+        分类管理
+        <small>分类添加</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="glyphicon glyphicon-home"></i>首页</a></li>
+        <li class="">分类管理</li>
+        <li class="active">分类添加</li>
+    </ol>
+@endsection
