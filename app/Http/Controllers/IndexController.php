@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Entities\Article;
+use App\Entities\Category;
 use App\Entities\FriendLink;
 use Illuminate\Http\Request;
 
@@ -61,5 +62,22 @@ class IndexController extends CommonController
     public function destroy($id)
     {
 
+    }
+
+    /**
+     * 根据分类的ID显示文章雷荣
+     * @param $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function category($id)
+    {
+        //图文列表4篇（带分页）
+        $data = Article::where('cate_id', $id)->orderBy('updated_at', 'desc')->paginate(4);
+        //查看次数自增
+        Category::where('id', $id)->increment('view');
+        //当前分类的子分类
+        $submenu = Category::where('parent_id', $id)->get();
+        $field = Category::find($id);
+        return view("frontend.index.category", compact('field', 'data', 'submenu'));
     }
 }

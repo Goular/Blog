@@ -84,7 +84,7 @@ class CategoryController extends CommonController
         $model = Category::find($id);
         if ($model) {
             if ($model->update(request()->all())) {
-                return redirect("admin/category");
+                return redirect("admin/categories");
             } else {
                 return back()->withInput()->withErrors("修改失败");
             }

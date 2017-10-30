@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Entities\Article;
+use App\Entities\Category;
 use Illuminate\Http\Request;
 
 /**
@@ -13,7 +15,7 @@ class CategoryController extends CommonController
 {
     public function index()
     {
-        return view("frontend.category.index");
+
     }
 
     public function create()
