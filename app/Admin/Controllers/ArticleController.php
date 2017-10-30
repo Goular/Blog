@@ -13,7 +13,7 @@ class ArticleController extends CommonController
 {
     public function index()
     {
-        $articles = Article::orderBy("updated_at", "desc")->paginate(1);
+        $articles = Article::orderBy("updated_at", "desc")->paginate(4);
         return view("backend.article.index", compact('articles'));
     }
 

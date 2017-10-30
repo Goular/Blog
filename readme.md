@@ -273,3 +273,8 @@
         factory(App\Entities\FriendLink::class, 10)->create();
         回车创建内容
 </pre>
+
+### Carbon时间处理类
+<pre>
+    http://blog.csdn.net/lbwo001/article/details/53063867
+</pre>
