@@ -35,7 +35,7 @@
                 <div class="rnav">
                     <ul>
                         @foreach($submenu as $k=>$s)
-                            <li class="rnav{{$k+1}}"><a href="{{url('categories/'.$s->id)}}"
+                            <li class="rnav{{$k+1}}"><a href="{{url('category/'.$s->id)}}"
                                                         target="_blank">{{$s->name}}</a></li>
                         @endforeach
                     </ul>

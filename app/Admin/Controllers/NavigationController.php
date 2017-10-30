@@ -30,7 +30,7 @@ class NavigationController extends CommonController
     {
         //校验
         $this->validate($request, [
-            "name" => "required|unique:categories,name",
+            "name" => "required|unique:navigations,name",
             "alias" => "nullable",
             "url" => "required",
             "order" => "nullable|numeric",
@@ -68,7 +68,7 @@ class NavigationController extends CommonController
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-            "name" => "required|unique:categories,name",
+            "name" => "required|unique:navigations,name",
             "alias" => "nullable",
             "url" => "required",
             "order" => "nullable|numeric",
