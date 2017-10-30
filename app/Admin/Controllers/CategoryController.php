@@ -44,7 +44,7 @@ class CategoryController extends CommonController
         //逻辑 && 渲染
         $entity = new Category();
         if ($entity->create(request()->all())) {
-            return redirect("admin/category");
+            return redirect("admin/categories");
         } else {
             return back()->withInput()->withErrors("添加失败");
         }
