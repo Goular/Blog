@@ -15,7 +15,7 @@
 include_once("admin.php");
 
 //前台路由配置规则
-Route::prefix('')->group(function () {
+Route::prefix('')->middleware(['frontend.view'])->group(function () {
     Route::get('/', 'IndexController@index');
     Route::resource('/indexs', 'IndexController');
     Route::resource('/categories', 'CategoryController');

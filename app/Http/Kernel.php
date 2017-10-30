@@ -59,5 +59,7 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         //2017-10-22 添加后台用户认证中间件
         'admin.identify' => \App\Admin\Middleware\AdminIdentify::class,
+        //2017-10-30 添加前台页面渲染中间件
+        'frontend.view' => \App\Http\Middleware\FrontendView::class,
     ];
 }
