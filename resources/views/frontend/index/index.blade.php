@@ -14,21 +14,18 @@
                 <p>为自己掘一个坟墓来葬心，红尘一梦，不再追寻。</p>
                 <p>加了锁的青春，不会再因谁而推开心门。</p>
             </ul>
-            <div class="avatar"><a href="#"><span>后盾</span></a></div>
+            <div class="avatar"><a href="#"><span>加工屋</span></a></div>
         </section>
     </div>
     <div class="template">
         <div class="box">
             <h3>
-                <p><span>个人博客</span>模板 Templates</p>
+                <p><span>站长</span>推荐 Recommend</p>
             </h3>
             <ul>
-                <li><a href="/" target="_blank"><img src="images/01.jpg"></a><span>仿新浪博客风格·梅——古典个人博客模板</span></li>
-                <li><a href="/" target="_blank"><img src="images/02.jpg"></a><span>黑色质感时间轴html5个人博客模板</span></li>
-                <li><a href="/" target="_blank"><img src="images/03.jpg"></a><span>Green绿色小清新的夏天-个人博客模板</span></li>
-                <li><a href="/" target="_blank"><img src="images/04.jpg"></a><span>女生清新个人博客网站模板</span></li>
-                <li><a href="/" target="_blank"><img src="images/02.jpg"></a><span>黑色质感时间轴html5个人博客模板</span></li>
-                <li><a href="/" target="_blank"><img src="images/03.jpg"></a><span>Green绿色小清新的夏天-个人博客模板</span></li>
+                @foreach($pics as $p)
+                    <li><a href="{{url('articles/'.$p->id)}}"  target="_blank"><img src="{{\App\Tools\Qiniu\QiniuHelper::showUrl($p->thumb)}}"></a><span>{{$p->title}}</span></li>
+                @endforeach
             </ul>
         </div>
     </div>

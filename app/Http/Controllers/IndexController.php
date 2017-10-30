@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Entities\Article;
 use Illuminate\Http\Request;
 
 /**
@@ -13,7 +14,22 @@ class IndexController extends CommonController
 {
     public function index()
     {
-        return view("frontend.index.index");
+        //点击量最高的6篇文章（站长推荐）
+        $pics = Article::orderBy('view', 'desc')->take(6)->get();
+
+        //点击量最高的6篇文章
+        $hot = Article::orderBy('view', 'desc')->take(5)->get();
+
+        //最新发布文章8篇
+        $new = Article::orderBy('updated_at', 'desc')->take(8)->get();
+
+        //图文列表5篇（带分页）
+        $data = Article::orderBy('updated_at', 'desc')->paginate(5);
+
+        //友情链接
+        //$links = Links::orderBy('link_order', 'asc')->get();
+
+        return view("frontend.index.index", compact('hot', 'new', 'pics', 'data', 'links'));
     }
 
     public function create()
