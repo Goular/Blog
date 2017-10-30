@@ -17,7 +17,7 @@ class NavigationController extends CommonController
     public function index()
     {
         //获取所有的导航
-        $navigations = Navigation::orderBy("order", "desc")->paginate(12);
+        $navigations = Navigation::orderBy("order", "asc")->paginate(12);
         return view("backend.navigation.index", compact('navigations'));
     }
 
