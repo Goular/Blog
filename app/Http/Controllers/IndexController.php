@@ -65,7 +65,7 @@ class IndexController extends CommonController
     }
 
     /**
-     * 根据分类的ID显示文章雷荣
+     * 根据分类的ID显示文章列表
      * @param $id
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
@@ -79,5 +79,14 @@ class IndexController extends CommonController
         $submenu = Category::where('parent_id', $id)->get();
         $field = Category::find($id);
         return view("frontend.index.category", compact('field', 'data', 'submenu'));
+    }
+
+    /**
+     * 根据文章ID显示文章详情
+     * @param $id
+     */
+    public function article($id)
+    {
+        return "1122334";
     }
 }

@@ -39,7 +39,7 @@
                 <figure><img src="{{\App\Tools\Qiniu\QiniuHelper::showUrl($p->thumb)}}"></figure>
                 <ul>
                     <p>{{str_limit($d->description,120,"...")}}</p>
-                    <a title="{{$d->title}}" href="{{url('articles/'.$d->id)}}" target="_blank" class="readmore">阅读全文>></a>
+                    <a title="{{$d->title}}" href="{{url('article/'.$d->id)}}" target="_blank" class="readmore">阅读全文>></a>
                 </ul>
                 <p class="dateview"><span>{{$d->updated_at->diffForHumans()}}</span><span>作者：{{$d->editor}}</span></p>
             @endforeach

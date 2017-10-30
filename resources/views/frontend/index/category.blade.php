@@ -10,7 +10,7 @@
 @section("page-content")
     <article class="blogs">
         <h1 class="t_nav"><span>{{$field->title}}
-            </span><a href="{{url('/')}}" class="n1">网站首页</a><a href="{{url('/indexs/category/'.$field->id)}}" class="n2">{{$field->name}}</a>
+            </span><a href="{{url('/')}}" class="n1">网站首页</a><a href="{{url('/category/'.$field->id)}}" class="n2">{{$field->name}}</a>
         </h1>
         <div class="newblog left">
             @foreach($data as $d)
@@ -21,7 +21,7 @@
                 <figure><img src="{{\App\Tools\Qiniu\QiniuHelper::showUrl($d->thumb)}}"></figure>
                 <ul class="nlist">
                     <p>{{$d->description}}</p>
-                    <a title="{{$d->title}}" href="{{url('a/'.$d->id)}}" target="_blank"
+                    <a title="{{$d->title}}" href="{{url('article/'.$d->id)}}" target="_blank"
                        class="readmore">阅读全文>></a>
                 </ul>
                 <div class="line"></div>
