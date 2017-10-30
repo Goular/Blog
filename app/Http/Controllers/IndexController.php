@@ -87,6 +87,13 @@ class IndexController extends CommonController
      */
     public function article($id)
     {
-        return "1122334";
+        $field = Article::find($id);//使用一对一关联
+        //查看次数自增
+        Article::where('id',$id)->increment('view');
+        $article['pre'] = Article::where('id', '<', $id)->orderBy('id', 'desc')->first();
+        $article['next'] = Article::where('id', '>', $id)->orderBy('id', 'asc')->first();
+        //相关文章就是目前同一分类下的文章
+        $data = Article::where('cate_id', $field->cate_id)->orderBy('id', 'desc')->take(6)->get();
+        return view('frontend.index.show', compact('field', 'article', 'data'));
     }
 }
