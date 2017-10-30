@@ -10,11 +10,11 @@
     <div class="banner">
         <section class="box">
             <ul class="texts">
-                <p>一只遨游互联网的菜鸟,苦苦追寻技术</p>
-                <p>才发现客户需求凌驾一切</p>
-                <p>知道真相后,只有一句,"去你大爷的!早干嘛去了"</p>
+                <p>&nbsp;&nbsp;互联网菜鸟,四年驾龄老司机</p>
+                <p>&nbsp;&nbsp;把玩各种编程技术，爱开车，爱钓鱼</p>
+                <p>&nbsp;&nbsp;所以到目前还是一只单身狗,唉....</p>
             </ul>
-            <div class="avatar"><a href="#"><span>加工屋</span></a></div>
+            <div class="avatar"><a href="https://github.com/Goular"><span>我的GitHub</span></a></div>
         </section>
     </div>
     <div class="template">
