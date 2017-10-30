@@ -14,7 +14,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        //数据库迁移使用
         Schema::defaultStringLength(191);
+        //Carbon 设置中文格式化
+        \Carbon\Carbon::setLocale('zh');
     }
 
     /**

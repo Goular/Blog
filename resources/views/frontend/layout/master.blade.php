@@ -48,7 +48,10 @@
 </header>
 @yield('page-content')
 <footer>
-    <p>{!! Config::get('web.copyright') !!} {!! Config::get('web.web_count') !!}</p>
+    {{--<p>{!! Config::get('web.copyright') !!} {!! Config::get('web.web_count') !!}</p>--}}
+
+    <p>Design by 后盾网 <a href="http://www.miitbeian.gov.cn/" target="_blank">http://www.houdunwang.com</a> <a href="/">网站统计</a></p>
+
 </footer>
 <script src="{{asset('blog/js/silder.js')}}"></script>
 @yield('page-js')
