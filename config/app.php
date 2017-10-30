@@ -183,6 +183,8 @@ return [
         Overtrue\LaravelFilesystem\Qiniu\QiniuStorageServiceProvider::class,
         //2017-10-27 添加 HTMLPurifier for Laravel 5
         Mews\Purifier\PurifierServiceProvider::class,
+        //2017-10-31 添加 DebugBar，用于检测
+        Barryvdh\Debugbar\ServiceProvider::class,
     ],
 
     /*
@@ -236,6 +238,8 @@ return [
         'Captcha' => Mews\Captcha\Facades\Captcha::class,
         //2017-10-27 添加 HTMLPurifier for Laravel 5
         'Purifier' => Mews\Purifier\Facades\Purifier::class,
+        //2017-10-31 添加 DebugBar，用于检测
+        'Debugbar' => Barryvdh\Debugbar\Facade::class,
     ],
 
 ];

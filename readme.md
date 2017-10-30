@@ -9,6 +9,14 @@
 
 # 项目使用须知
 
+### 部署步骤
+<pre>
+    1.在部署的机子上执行 php artisan key:generate
+        原因是本地开发是csrf的秘钥已经泄露
+    2.上线时需要将debug模式改为false，即env文件
+</pre>
+
+
 ### 使用前需要执行的指令
 <pre>
     1.「公开磁盘」就是指你的文件将可被公开访问，默认下， public 磁盘使用 local 驱动且将文件存放在 storage/app/public 目录下。为了能通过网络访问，你需要创建 public/storage 到 storage/app/public 的符号链接。
