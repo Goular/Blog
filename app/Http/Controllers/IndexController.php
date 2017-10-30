@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Entities\Article;
+use App\Entities\FriendLink;
 use Illuminate\Http\Request;
 
 /**
@@ -27,7 +28,7 @@ class IndexController extends CommonController
         $data = Article::orderBy('updated_at', 'desc')->paginate(5);
 
         //友情链接
-        //$links = Links::orderBy('link_order', 'asc')->get();
+        $links = FriendLink::orderBy('order', 'asc')->get();
 
         return view("frontend.index.index", compact('hot', 'new', 'pics', 'data', 'links'));
     }
