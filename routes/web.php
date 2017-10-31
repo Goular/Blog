@@ -14,6 +14,9 @@
 //引入后台的路由配置文件
 include_once("admin.php");
 
+//2017-10-31 添加微信公众号的访问的库
+Route::any('/wechat', 'WeChatController@serve');
+
 //前台路由配置规则
 Route::prefix('')->middleware(['frontend.view'])->group(function () {
     Route::get('/', 'IndexController@index');
