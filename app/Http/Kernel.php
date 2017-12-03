@@ -61,5 +61,7 @@ class Kernel extends HttpKernel
         'admin.identify' => \App\Admin\Middleware\AdminIdentify::class,
         //2017-10-30 添加前台页面渲染中间件
         'frontend.view' => \App\Http\Middleware\FrontendView::class,
+        // 2017-12-03 api 允许跨域访问
+        'cors' => \App\Api\Middleware\AccessControlAllowOrigin::class
     ];
 }
