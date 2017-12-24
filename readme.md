@@ -15,9 +15,9 @@
         原因是本地开发是csrf的秘钥已经泄露
     2.上线时需要将debug模式改为false，即env文件
     3.nginx配置文件需要加上url美化，不然不会运行
-    location / {  
-        try_files $uri $uri/ /index.php?$query_string;  
-    } 
+        location / {  
+            try_files $uri $uri/ /index.php?$query_string;  
+        } 
 </pre>
 
 
