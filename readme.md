@@ -18,6 +18,7 @@
         location / {  
             try_files $uri $uri/ /index.php?$query_string;  
         } 
+    4.将整个文件夹都是用 chmod 777 -R ./blog ,不然读写容易出现困难    
 </pre>
 
 
