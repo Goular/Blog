@@ -12,7 +12,7 @@
 ### 部署步骤
 <pre>
     1.在部署的机子上执行 php artisan key:generate
-        原因是本地开发是csrf的秘钥已经泄露
+        原因是本地开发是csrf的秘钥已经泄露 
     2.上线时需要将debug模式改为false，即env文件
     3.nginx配置文件需要加上url美化，不然不会运行
         location / {  
