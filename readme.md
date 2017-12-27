@@ -28,7 +28,7 @@
         php artisan storage:link
     2.由于Laravel是外国人开发的，所以时区和默认语言是需要进行修改的
         修改位置:config/app.php
-        'timezone'=>'RPC' 时区
+        'timezone'=>'RPC' 时区 
         'locale'=>'zh'    当地语言
 </pre>
 
