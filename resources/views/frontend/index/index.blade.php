@@ -24,7 +24,7 @@
             </h3>
             <ul>
                 @foreach($pics as $p)
-                    <li><a href="{{url('articles/'.$p->id)}}"  target="_blank"><img src="{{\App\Tools\Qiniu\QiniuHelper::showUrl($p->thumb)}}"></a><span>{{$p->title}}</span></li>
+                    <li><a href="{{url('article/'.$p->id)}}"  target="_blank"><img src="{{\App\Tools\Qiniu\QiniuHelper::showUrl($p->thumb)}}"></a><span>{{$p->title}}</span></li>
                 @endforeach
             </ul>
         </div>
