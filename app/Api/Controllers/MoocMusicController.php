@@ -75,4 +75,41 @@ class MoocMusicController extends CommonController
         $body = $response->getBody();
         return $this->toJson($body->getContents());
     }
+
+    // 获取歌曲列表
+    public function getSongList($disstid)
+    {
+        $headers = [
+            'referer' => 'https://y.qq.com/w/taoge.html',
+            'host' => 'c.y.qq.com'
+        ];
+        $query = [
+            'g_tk' => '5381',
+            'inCharset' => 'utf-8',
+            'outCharset' => 'utf-8',
+            'notice' => 0,
+            'uin' => 0,
+            'format' => 'json',
+            'platform' => 'h5',
+            'needNewCode' => 1,
+            'new_format' => 1,
+            'pic' => 500,
+            'disstid' => $disstid,
+            'type' => 1,
+            'json' => 1,
+            'utf8' => 1,
+            'onlysong' => 0,
+            'picmid' => 1,
+            'nosign' => 1,
+            'song_begin' => 0,
+            'song_num' => 15
+        ];
+        $client = new Client();
+        $response = $client->request('GET', 'https://c.y.qq.com/qzone/fcg-bin/fcg_ucc_getcdinfo_byids_cp.fcg', [
+            'headers' => $headers,
+            'query' => $query
+        ]);
+        $body = $response->getBody();
+        return $this->toJson($body->getContents());
+    }
 }
