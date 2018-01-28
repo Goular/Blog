@@ -46,4 +46,33 @@ class MoocMusicController extends CommonController
         $body = $response->getBody();
         return $this->toJson($body->getContents());
     }
+
+    // 获取歌词的内容
+    public function lyric($mid)
+    {
+        $headers = [
+            'referer' => 'https://y.qq.com/portal/player.html',
+            'host' => 'c.y.qq.com'
+        ];
+        $query = [
+            'g_tk' => '5381',
+            'inCharset' => 'utf-8',
+            'outCharset' => 'utf-8',
+            'notice' => 0,
+            'songmid' => $mid,
+            'platform' => 'yqq',
+            'hostUin' => 0,
+            'needNewCode' => 0,
+            'categoryId' => 10000000,
+            'pcachetime' => time(),
+            'format' => 'json'
+        ];
+        $client = new Client();
+        $response = $client->request('GET', 'https://c.y.qq.com/lyric/fcgi-bin/fcg_query_lyric_new.fcg', [
+            'headers' => $headers,
+            'query' => $query
+        ]);
+        $body = $response->getBody();
+        return $this->toJson($body->getContents());
+    }
 }

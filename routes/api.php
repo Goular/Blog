@@ -24,4 +24,5 @@ Route::middleware('cors')->group(function () {
     Route::get('ratings', '\App\Api\Controllers\ApiController@ratings');
     // 慕课网Vue音乐项目使用的代理API 2018-01-28
     Route::get('/music/getDiscList','\App\Api\Controllers\MoocMusicController@discList');
+    Route::get('/music/lyric/{id}','\App\Api\Controllers\MoocMusicController@lyric');
 });
