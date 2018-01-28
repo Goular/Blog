@@ -25,8 +25,7 @@ Route::prefix('')->middleware(['frontend.view'])->group(function () {
     Route::resource('/indexs', 'IndexController');
     Route::resource('/categories', 'CategoryController');
     Route::resource('/articles', 'ArticleController');
-    // 慕课网Vue音乐项目使用的代理API 2018-01-28
-    Route::get('/music/getDiscList','MoocMusicController@discList');
+
 });
 
 //验证模块
