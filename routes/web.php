@@ -25,18 +25,19 @@ Route::prefix('')->middleware(['frontend.view'])->group(function () {
     Route::resource('/indexs', 'IndexController');
     Route::resource('/categories', 'CategoryController');
     Route::resource('/articles', 'ArticleController');
-
+    // 慕课网Vue音乐项目使用的代理API 2018-01-28
+    Route::get('/music/getDiscList','MoocMusicController@discList');
 });
 
 //验证模块
 Route::group(['prefix' => 'verify'], function () {
     //验证码模块的使用
-    Route::get('captcha/img','\App\Http\Controllers\Verify\CaptchaController@createImg');
-    Route::get('captcha/imgUrl','\App\Http\Controllers\Verify\CaptchaController@createUrl');
-    Route::get('captcha/imgHtml','\App\Http\Controllers\Verify\CaptchaController@createHtml');
+    Route::get('captcha/img', '\App\Http\Controllers\Verify\CaptchaController@createImg');
+    Route::get('captcha/imgUrl', '\App\Http\Controllers\Verify\CaptchaController@createUrl');
+    Route::get('captcha/imgHtml', '\App\Http\Controllers\Verify\CaptchaController@createHtml');
 
     //验证短信发送模块的使用
-    Route::get('sms/code/{id}','\App\Http\Controllers\Verify\SmsController@sendSms');
+    Route::get('sms/code/{id}', '\App\Http\Controllers\Verify\SmsController@sendSms');
 });
 
 
